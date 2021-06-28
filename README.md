@@ -2,6 +2,9 @@
 
 ## Project setup
 ```
+node version 14.17.1
+npm version 6.14.13
+vue/cli version 4.5.13
 npm install
 ```
 
