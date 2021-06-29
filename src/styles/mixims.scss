@@ -45,3 +45,29 @@
   }
 
 }
+
+@mixin button-tictac() {
+  &--tictac-rigth {
+	border-radius: $button-tic-tac-right;
+	@content
+  }
+
+  &--tictac-left {
+	border-radius: $button-tic-tac-left;
+	@content
+  }
+
+}
+
+@mixin box-tictac() {
+  &--tictac-rigth {
+	border-radius: $box-tic-tac-right;
+	@content
+  }
+
+  &--tictac-left {
+	border-radius: $box-tic-tac-left;
+	@content
+  }
+
+}

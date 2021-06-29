@@ -26,6 +26,7 @@ export default {
 @import "src/styles/mixims";
 
 .button {
+	font-family: $font-family-base !important;
 	background-color: $primary-orange !important;
 	margin: calc-rem(10);
 	border: none !important;
@@ -35,16 +36,7 @@ export default {
 		background-color: darken($primary-orange, 10%) !important;
 	}
 
-	@include active {
-
-	}
-
-	&--tictac-rigth {
-		border-radius: $tic-tac-right;
-	}
-
-	&--tictac-left {
-		border-radius: $tic-tac-left;
-	}
+	@include active;
+	@include button-tictac;
 }
 </style>
