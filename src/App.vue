@@ -9,13 +9,18 @@
 </template>
 
 <style lang="scss">
+
 @import 'src/styles/variables';
 #app {
-  font-family: $font-family-base;
+  font-family: $font-family-base !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  //text-align: center;
+  //color: #2c3e50;
+
+	h1{
+		font-weight: bold;
+	}
 }
 
 #nav {
