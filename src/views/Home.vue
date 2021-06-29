@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
+	<div class="home">
 
-		<Button text="long text for test"></Button>
-		<Button text="medium texte"></Button>
+		<Button text="long text for test" ticTac="rigth"></Button>
+		<Button text="medium texte" ticTac="left"></Button>
 		<Button text="st"></Button>
-  </div>
+	</div>
 </template>
 
 <script>
@@ -12,10 +12,10 @@
 import Button from "../components/button/button";
 
 export default {
-  name: 'Home',
-  components: {
+	name: 'Home',
+	components: {
 		Button,
-  }
+	}
 }
 </script>
 

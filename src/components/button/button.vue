@@ -1,33 +1,50 @@
 <template>
-	<b-button>{{ text }}</b-button>
+	<b-button class="button" :class="rootClasses()">{{ text }}</b-button>
 
 </template>
 
 <script>
 export default {
 	name: "button",
-	props:{
+	props: {
 		text: String,
+		ticTac: String,
+	},
+	methods: {
+		rootClasses() {
+			return [{
+				[`button--tictac-${this.ticTac}`]: this.ticTac,
+			}]
+		}
 	}
 }
 </script>
 
 <style scoped lang="scss">
 @import 'src/styles/variables';
+@import "src/styles/functions";
 @import "src/styles/mixims";
 
-button{
+.button {
 	background-color: $primary-orange !important;
+	margin: calc-rem(10);
 	border: none !important;
-	border-radius: $tic-tac-droite;
 	text-transform: uppercase;
 
-	@include hover{
+	@include hover {
 		background-color: darken($primary-orange, 10%) !important;
 	}
 
-	@include active{
+	@include active {
 
+	}
+
+	&--tictac-rigth {
+		border-radius: $tic-tac-right;
+	}
+
+	&--tictac-left {
+		border-radius: $tic-tac-left;
 	}
 }
 </style>
