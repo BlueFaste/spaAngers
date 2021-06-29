@@ -1,0 +1,47 @@
+@mixin hover {
+  &:hover, &:focus {
+	@content;
+  }
+}
+
+@mixin active {
+  &:active {
+	animation-duration: 200ms;
+	animation-name: scale;
+	@content;
+  }
+}
+
+@keyframes scale {
+  0% {
+	transform: scale(1);
+  }
+
+  50% {
+	transform: scale(0.9);
+  }
+
+  100% {
+	transform: scale(1);
+  }
+}
+
+@mixin breakpoint($device) {
+  // mobile < $breakpoint-sm
+  // tablet > $breakpoint-sm
+  // laptop > $breakpoint-md
+  @if $device == mobile {
+	@media(max-width: ($breakpoint-sm - 1)) {
+	  @content;
+	}
+  } @else if $device == tablet {
+	@media (min-width: $breakpoint-sm) {
+	  @content
+	}
+  } @else if $device == laptop {
+	@media (min-width: $breakpoint-md) {
+	  @content
+	}
+  }
+
+}
