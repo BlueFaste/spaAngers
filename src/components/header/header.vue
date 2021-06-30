@@ -7,6 +7,9 @@
 			<img :src="require('@/assets/burger-menu.svg')" alt="" @click="toggleNav">
 			<navigation class="header--nav" id="nav" @close="toggleNav"></navigation>
 		</div>
+		<div class="header--design" id="header-design">
+			<img :src="require('@/assets/header-vague.svg')" alt="">
+		</div>
 	</header>
 </template>
 
@@ -16,6 +19,11 @@ import Navigation from "./navigation";
 export default {
 	name: "header",
 	components: {Navigation},
+	data(){
+		return{
+			routerName: this.$store.getters.getRouterName
+		}
+	},
 	methods: {
 		toggleNav() {
 			console.log('hello')
@@ -28,7 +36,16 @@ export default {
 
 			}
 		}
-	}
+	},
+	// watch: {
+	// 	routerName : function(){
+	// 		console.log('header', this.routerName )
+	// 		if (this.routerName.name === 'Home'){
+	// 			const design = document.getElementById('header-design')
+	// 			design.classList.add('header--design--none')
+	// 		}
+	// 	}
+	// }
 }
 </script>
 
@@ -39,10 +56,12 @@ export default {
 
 .header {
 	background: $primary-beige;
-	padding: calc-rem(32);
+	padding: calc-rem(32) calc-rem(32) 0 calc-rem(32);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+	//margin-bottom: calc-rem(10);
 
 	&--logo {
 		display: block;
@@ -61,6 +80,23 @@ export default {
 		&-open {
 			left: 0;
 			transition: left 200ms;
+		}
+	}
+
+	&--design{
+		position: absolute;
+		bottom: -5vh;
+		left: 0;
+		z-index: -1;
+		width: 100vw;
+		overflow: hidden;
+		img{
+			width: 101vw;
+
+		}
+
+		&--none{
+			visibility: hidden;
 		}
 	}
 
