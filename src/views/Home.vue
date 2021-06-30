@@ -24,6 +24,17 @@
 
 			</div>
 		</div>
+		<div class="home--refuge">
+			<box background="beige" tic-tac="rigth" size="50">
+				<template v-slot:content>
+					<h1>Le refuge</h1>
+					<p>Découvrez notre refuge en cliquant ci-dessous</p>
+				</template>
+			</box>
+			<router-link to="/" class="home--refuge--discover">
+				<Button text="Découvrir" ticTac="left" color="orange"></Button>
+			</router-link>
+		</div>
 	</div>
 </template>
 
@@ -48,7 +59,7 @@ export default {
 .home {
 
 	&--call-action{
-		height: 90vh;
+		height: 85vh;
 
 		&--donation{
 			display: flex;
@@ -119,5 +130,25 @@ export default {
 
 	}
 
+	&--refuge{
+		background-image: url("../assets/refuge-vague.svg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100vw;
+		height: 70vh;
+		padding: calc-rem(60) calc-rem(10);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&--discover{
+			align-self: flex-end !important;
+			.btn{
+				backdrop-filter: blur( 14.0px );
+				-webkit-backdrop-filter: blur( 14.0px );
+				background: $primary-orange-rgba !important;
+			}
+		}
+	}
 }
 </style>
