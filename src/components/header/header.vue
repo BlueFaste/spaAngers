@@ -61,7 +61,7 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
-	//margin-bottom: calc-rem(10);
+	z-index: 999;
 
 	&--logo {
 		display: block;

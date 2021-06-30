@@ -1,5 +1,6 @@
 $primary-orange: #EC6608;
 $primary-beige: #FFECDE;
+$primary-brown: #483F32;
 $primary-beige-rgba: rgba( 255, 236, 222, 0.80 );
 $primary-orange-rgba: rgba( 236, 102, 8, 0.80 );
 
@@ -9,7 +10,7 @@ $button-tic-tac-left: 3px 20px 3px 20px !important;
 $box-tic-tac-right: 30px 3px 30px 3px !important;
 $box-tic-tac-left: 3px 30px 3px 30px !important;
 
-$text-color: #483F32;
+$text-color: $primary-brown;
 $link-color: $text-color;
 //$link-bg: #ce6fb3;
 

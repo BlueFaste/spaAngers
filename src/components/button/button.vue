@@ -9,11 +9,13 @@ export default {
 	props: {
 		text: String,
 		ticTac: String,
+		color: String,
 	},
 	methods: {
 		rootClasses() {
 			return [{
 				[`button--tictac-${this.ticTac}`]: this.ticTac,
+				[`button--color-${this.color}`]: this.color,
 			}]
 		}
 	}
@@ -27,14 +29,27 @@ export default {
 
 .button {
 	font-family: $font-family-base !important;
-	background-color: $primary-orange !important;
 	margin: calc-rem(10);
 	border: none !important;
 	text-transform: uppercase;
+	font-weight: bold;
 
-	@include hover {
-		background-color: darken($primary-orange, 10%) !important;
+	&--color-orange{
+		background-color: $primary-orange !important;
+		@include hover {
+			background-color: darken($primary-orange, 10%) !important;
+		}
 	}
+
+	&--color-brown{
+		background-color: $primary-brown !important;
+
+		@include hover {
+			background-color: darken($primary-brown, 10%) !important;
+		}
+
+	}
+
 
 	@include active;
 	@include button-tictac;
