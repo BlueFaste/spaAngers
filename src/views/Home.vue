@@ -54,6 +54,24 @@
 						:link="actu.link" :key="key" tictac="left"></box-img>
 			</div>
 
+			<div class="home--newsletter">
+				<img :src="require('@/assets/brown-wave.svg')" alt=""
+						class="home--newsletter--design home--newsletter--design-top">
+				<div class="home--newsletter--container">
+					<h2>Newsletter</h2>
+					<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
+						de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
+					<form class="home--newsletter--container--tictac-left">
+						<input type="email" placeholder="Votre adresse e-mail"
+								class="home--newsletter--container--input home--newsletter--container--input-email">
+						<input type="submit" class="home--newsletter--container--input home--newsletter--container--input-submit"
+								value=">" @click.prevent="newsLetter">
+					</form>
+
+				</div>
+				<img :src="require('@/assets/brown-wave.svg')" alt=""
+						class="home--newsletter--design home--newsletter--design-down">
+			</div>
 		</div>
 	</div>
 </template>
@@ -91,6 +109,11 @@ export default {
 					img: '',
 				},
 			]
+		}
+	},
+	methods: {
+		newsLetter() {
+			console.log('newsLetter')
 		}
 	}
 }
@@ -234,6 +257,55 @@ export default {
 				//flex-basis: 450px;
 				scroll-snap-align: start;
 			}
+		}
+	}
+	&--newsletter {
+
+		&--design {
+			width: 100vw;
+
+			&-top {
+				-webkit-transform: scaleY(-1);
+				transform: scaleY(-1);
+				margin-bottom: -1px;
+			}
+
+			&-down {
+				margin-top: -1px;
+			}
+		}
+
+		&--container {
+			background: $primary-brown;
+			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
+			color: white;
+			padding: calc-rem(20) calc-rem(30);
+
+			h2 {
+				text-transform: uppercase;
+			}
+
+			@include button-tictac {
+				display: flex;
+				background: white;
+				padding: calc-rem(10);
+			}
+
+			&--input {
+
+				border: none;
+				background: white;
+
+				&-email {
+					width: 72vw;
+					border-radius: 20px;
+				}
+
+				&-submit {
+					border-radius: 20px;
+				}
+			}
+
 		}
 	}
 }

@@ -17,7 +17,9 @@ export default {
 </script>
 <style lang="scss">
 
-@import 'src/styles/variables';
+@import "styles/variables";
+@import "styles/mixims";
+@import "styles/functions";
 #app {
   font-family: $font-family-base !important;
   -webkit-font-smoothing: antialiased;
@@ -34,6 +36,10 @@ export default {
 		margin: 0;
 		font-weight: bold;
 	}
+
+	p{
+		font-size: 14px;
+	};
 
 	a{
 		text-decoration: none;
