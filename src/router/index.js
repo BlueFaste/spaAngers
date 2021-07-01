@@ -68,6 +68,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   store.dispatch('updateRouterName', to.name)
+ window.scroll(0, 0)
   next();
 })
 
