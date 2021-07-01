@@ -151,7 +151,7 @@ export default {
 			width: 101vw;
 			position: absolute;
 			bottom: -10vh;
-			left: -1px;
+			left: calc-rem(-3);
 		}
 	}
 

@@ -19,7 +19,7 @@
 				<h3>Contactez-nous</h3>
 				<p>Mail : <a href="mailto: sitespaaangers@orange.fr">sitespaaangers@orange.fr</a></p>
 				<p>Tel : <a href="tel:+33241663223">02 41 66 32 23</a></p>
-				<p>Fax : 02 41 47 37 </p>
+				<p>Fax : 02 41 47 37 94</p>
 			</div>
 		</div>
 	</footer>

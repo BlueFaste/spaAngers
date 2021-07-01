@@ -54,6 +54,7 @@ export default {
 		flex-direction: column;
 		align-items: center;
 		background: $primary-beige;
+		z-index: 2;
 
 		.button {
 			margin: calc-rem(2) 0;
