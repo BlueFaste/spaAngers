@@ -55,7 +55,7 @@
 			</div>
 		</div>
 
-	<Newsletter></Newsletter>
+		<Newsletter></Newsletter>
 
 		<div class="home--help">
 			<h2>Comment nous aider ?</h2>
@@ -284,7 +284,7 @@ export default {
 		}
 	}
 
-	&--help{
+	&--help {
 		margin: calc-rem(20);
 
 	}

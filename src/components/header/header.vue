@@ -19,8 +19,8 @@ import Navigation from "./navigation";
 export default {
 	name: "header",
 	components: {Navigation},
-	data(){
-		return{
+	data() {
+		return {
 			routerName: this.$store.getters.getRouterName
 		}
 	},
@@ -83,19 +83,20 @@ export default {
 		}
 	}
 
-	&--design{
+	&--design {
 		position: absolute;
 		bottom: -5vh;
 		left: -1vw;
 		z-index: -1;
 		width: 101vw;
 		overflow: hidden;
-		img{
+
+		img {
 			width: 103vw;
 
 		}
 
-		&--none{
+		&--none {
 			visibility: hidden;
 		}
 	}

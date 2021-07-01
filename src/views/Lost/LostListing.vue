@@ -13,7 +13,8 @@
 		<div class="lostListing--text">
 			<p class="fw-bold">Vous aussi vous avez perdu votre animal ?</p>
 
-			<p>La SPAA Angers vous permet de poster une annonce sur notre site web et nous ferons tout pour que vous retrouviez votre animal.</p>
+			<p>La SPAA Angers vous permet de poster une annonce sur notre site web et nous ferons tout pour que vous
+				retrouviez votre animal.</p>
 
 			<p>Postez votre annonce en cliquant sur le bouton ci-dessous.</p>
 
@@ -37,30 +38,30 @@ export default {
 	},
 	data() {
 		return {
-			filters:[
+			filters: [
 				{
 					name: 'Chiens',
-					animal:'dog',
+					animal: 'dog',
 					check: false,
 				},
 				{
 					name: 'Chiots',
-					animal:'puppy',
+					animal: 'puppy',
 					check: false,
 				},
 				{
 					name: 'Chats',
-					animal:'cat',
+					animal: 'cat',
 					check: false,
 				},
 				{
 					name: 'Chatons',
-					animal:'kitten',
+					animal: 'kitten',
 					check: false,
 				},
 			],
 
-			animalDisplayList:[],
+			animalDisplayList: [],
 			animalsList: [
 				{
 					name: `Lili Beillourd`,
@@ -83,17 +84,17 @@ export default {
 			],
 		}
 	},
-	methods:{
-		filterCheck(data){
+	methods: {
+		filterCheck(data) {
 			console.log(data)
 			let countFilterUncheck = 0;
 			// this.filters[data].check  = !this.filters[data].check;
-			this.animalDisplayList=[];
-			for(const filter in this.filters){
+			this.animalDisplayList = [];
+			for(const filter in this.filters) {
 				console.log(this.filters[filter])
-				if (this.filters[filter].check){
-					for(const animal in this.animalsList){
-						if (this.animalsList[animal].animal == this.filters[filter].animal){
+				if(this.filters[filter].check) {
+					for(const animal in this.animalsList) {
+						if(this.animalsList[animal].animal == this.filters[filter].animal) {
 							this.animalDisplayList.push(this.animalsList[animal])
 						}
 					}
@@ -101,7 +102,7 @@ export default {
 					countFilterUncheck++
 				}
 			}
-			if(countFilterUncheck == this.filters.length){
+			if(countFilterUncheck == this.filters.length) {
 				this.animalDisplayList = this.animalsList
 			}
 		},
@@ -127,12 +128,12 @@ export default {
 		}
 	}
 
-	&--list{
+	&--list {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 
-		p{
+		p {
 			color: $primary-orange;
 		}
 
@@ -144,10 +145,11 @@ export default {
 		}
 	}
 
-	&--text{
+	&--text {
 		display: flex;
 		flex-direction: column;
-		.button{
+
+		.button {
 			align-self: end;
 		}
 	}

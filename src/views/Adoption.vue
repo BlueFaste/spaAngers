@@ -40,101 +40,102 @@
 import Button from "../components/button/button";
 import BoxImg from "../components/box/boxImg";
 import Filters from "../components/filters/filters";
+
 export default {
 	name: "Adoption",
 	components: {Filters, BoxImg, Button},
 	created() {
 		this.animalDisplayList = this.animalsList
 	},
-	data(){
+	data() {
 		return {
 			animalsList: [
 				{
 					name: `Trumpy`,
 					link: '/',
 					img: '',
-					animal:'cat',
+					animal: 'cat',
 				},
 				{
 					name: 'Titi Jr',
 					link: '/',
 					img: '',
-					animal:'dog',
+					animal: 'dog',
 				},
 				{
 					name: 'Mélania',
 					link: '/',
 					img: '',
-					animal:'dog',
+					animal: 'dog',
 				},
 				{
 					name: 'Obama',
 					link: '/',
 					img: '',
-					animal:'puppy',
+					animal: 'puppy',
 				},
 				{
 					name: `Mimi`,
 					link: '/',
 					img: '',
-					animal:'dog',
+					animal: 'dog',
 				},
 				{
 					name: 'Jeanmapen',
 					link: '/',
 					img: '',
-					animal:'kitten',
+					animal: 'kitten',
 				},
 				{
 					name: 'Mamapen',
 					link: '/',
 					img: '',
-					animal:'cat',
+					animal: 'cat',
 				},
 				{
 					name: 'Emma',
 					link: '/',
 					img: '',
-					animal:'cat',
+					animal: 'cat',
 				},
 			],
-			animalDisplayList:[],
+			animalDisplayList: [],
 
-			filters:[
-					{
-						name: 'Chiens',
-								animal:'dog',
-						check: false,
-					},
-			{
-						name: 'Chiots',
-						animal:'puppy',
-						check: false,
-					},
-			{
-						name: 'Chats',
-						animal:'cat',
-						check: false,
-					},
-			{
-						name: 'Chatons',
-						animal:'kitten',
-						check: false,
-					},
+			filters: [
+				{
+					name: 'Chiens',
+					animal: 'dog',
+					check: false,
+				},
+				{
+					name: 'Chiots',
+					animal: 'puppy',
+					check: false,
+				},
+				{
+					name: 'Chats',
+					animal: 'cat',
+					check: false,
+				},
+				{
+					name: 'Chatons',
+					animal: 'kitten',
+					check: false,
+				},
 			],
 		}
 	},
-	methods:{
-		filterCheck(data){
+	methods: {
+		filterCheck(data) {
 			console.log(data)
 			let countFilterUncheck = 0;
 			// this.filters[data].check  = !this.filters[data].check;
-			this.animalDisplayList=[];
-			for(const filter in this.filters){
+			this.animalDisplayList = [];
+			for(const filter in this.filters) {
 				console.log(this.filters[filter])
-				if (this.filters[filter].check){
-					for(const animal in this.animalsList){
-						if (this.animalsList[animal].animal == this.filters[filter].animal){
+				if(this.filters[filter].check) {
+					for(const animal in this.animalsList) {
+						if(this.animalsList[animal].animal == this.filters[filter].animal) {
 							this.animalDisplayList.push(this.animalsList[animal])
 						}
 					}
@@ -142,7 +143,7 @@ export default {
 					countFilterUncheck++
 				}
 			}
-			if(countFilterUncheck == this.filters.length){
+			if(countFilterUncheck == this.filters.length) {
 				this.animalDisplayList = this.animalsList
 			}
 		},
@@ -170,11 +171,11 @@ export default {
 			width: min-content;
 		}
 
-		p{
+		p {
 			font-size: calc-rem(12) !important;
 		}
 
-		&--design{
+		&--design {
 			width: 101vw;
 			position: absolute;
 			bottom: -10vh;
@@ -182,7 +183,7 @@ export default {
 		}
 	}
 
-	&--list{
+	&--list {
 		margin: 0 calc-rem(30);
 
 		display: flex;
@@ -190,11 +191,12 @@ export default {
 		align-items: center;
 		justify-content: center;
 
-		&--header{
+		&--header {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: calc-rem(10);
-			h2{
+
+			h2 {
 				text-transform: uppercase;
 				color: $primary-brown;
 				//width: min-content;
@@ -206,9 +208,11 @@ export default {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			p{
+
+			p {
 				color: $primary-orange;
 			}
+
 			.box-img {
 				width: 38vw !important;
 				height: 25vh;

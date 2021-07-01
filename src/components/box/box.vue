@@ -7,7 +7,7 @@
 <script>
 export default {
 	name: "box",
-	props:{
+	props: {
 		background: String,
 		ticTac: String,
 		size: String,
@@ -29,7 +29,7 @@ export default {
 @import "src/styles/functions";
 @import "src/styles/mixims";
 
-.box{
+.box {
 	@include box-tictac;
 
 	padding: calc-rem(15);
@@ -37,36 +37,37 @@ export default {
 	max-width: max-content;
 
 	//background: rgba( 255, 236, 222, 0.45 );
-	backdrop-filter: blur( 14.0px );
-	-webkit-backdrop-filter: blur( 14.0px );
+	backdrop-filter: blur(14.0px);
+	-webkit-backdrop-filter: blur(14.0px);
 
-	p{
+	p {
 		font-size: calc-rem(14);
 		margin: 0;
 	}
-	h1{
+
+	h1 {
 		font-size: calc-rem(20);
 		margin: 0;
 	}
 
-	h3{
+	h3 {
 		font-size: calc-rem(13);
 		margin: 0;
 		text-transform: uppercase;
 		font-weight: bold;
 	}
 
-	&--background-beige{
+	&--background-beige {
 		background: $primary-beige-rgba;
 		color: $text-color;
 	}
 
-	&--background-orange{
-			background: $primary-orange-rgba;
-			color: white;
+	&--background-orange {
+		background: $primary-orange-rgba;
+		color: white;
 	}
 
-	&--size-50{
+	&--size-50 {
 		max-width: 50%;
 	}
 

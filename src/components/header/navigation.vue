@@ -117,11 +117,11 @@ export default {
 			}
 		},
 
-		close(){
+		close() {
 			this.subMenuAnimal = false;
 			this.subMenuBlog = false;
-			const animalIcon= document.getElementById('icon-animal')
-			const blogIcon= document.getElementById('icon-blog')
+			const animalIcon = document.getElementById('icon-animal')
+			const blogIcon = document.getElementById('icon-blog')
 			animalIcon.classList.remove('nav--list--icon--open')
 			blogIcon.classList.remove('nav--list--icon--open')
 			this.$emit('close');

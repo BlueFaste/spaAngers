@@ -9,10 +9,11 @@
 
 <script>
 import Button from "../button/button";
+
 export default {
 	name: "boxImgText",
 	components: {Button},
-	props:{
+	props: {
 		text: String,
 		link: String,
 		tictac: String,
@@ -35,7 +36,8 @@ export default {
 @import 'src/styles/variables';
 @import "src/styles/functions";
 @import "src/styles/mixims";
-.box-img-text{
+
+.box-img-text {
 	@include button-tictac;
 
 	background: no-repeat center center;
@@ -51,7 +53,7 @@ export default {
 	align-items: flex-end;
 	margin: calc-rem(20) 0;
 
-	p{
+	p {
 		text-align: right;
 		margin: calc-rem(10);
 		font-size: calc-rem(14);

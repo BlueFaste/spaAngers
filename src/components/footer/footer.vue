@@ -27,6 +27,7 @@
 
 <script>
 import Form from "../form/form";
+
 export default {
 	name: "footer",
 	components: {Form}
@@ -38,49 +39,49 @@ export default {
 @import "src/styles/functions";
 @import "src/styles/mixims";
 
-footer{
-	.footer{
+footer {
+	.footer {
 		padding-bottom: calc-rem(30);
 
-		&--design{
+		&--design {
 			width: 100vw;
 			-webkit-transform: scaleY(-1);
 			transform: scaleY(-1);
 			margin-bottom: -1px;
 		}
 
-		&--container{
+		&--container {
 			background: $primary-brown;
 			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
 			color: white;
 			padding: calc-rem(20) calc-rem(30);
 
-			p{
+			p {
 				margin: 0;
 			}
 
-			h3, h2{
+			h3, h2 {
 				text-transform: uppercase;
 				font-weight: bold;
 				margin-top: calc-rem(30);
 			}
 
-			h3{
+			h3 {
 				font-size: calc-rem(16);
 			}
 
-			&--newsletter, &--address, &--contact{
+			&--newsletter, &--address, &--contact {
 				margin: calc-rem(10) 0;
 			}
 
-			&--newsletter{
-				.form{
+			&--newsletter {
+				.form {
 					margin-top: calc-rem(5);
 				}
 			}
 
-			&--contact{
-				a{
+			&--contact {
+				a {
 					color: $primary-orange;
 				}
 			}

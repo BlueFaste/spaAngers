@@ -15,6 +15,7 @@
 
 <script>
 import Form from "../form/form";
+
 export default {
 	name: "Newsletter",
 	components: {Form},
