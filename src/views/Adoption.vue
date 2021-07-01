@@ -20,13 +20,7 @@
 		<div class="adoption--list">
 			<div class="adoption--list--header">
 				<h2>69 animaux à adopter</h2>
-				<Button text="Filtres" ticTac="left" color="beige" @click="filter = !filter"></Button>
-				<box background="beige" tic-tac="left" class="adoption--list--header--filter" v-show="filter">
-					<template v-slot:content>
-						<h3>Filtres</h3>
-						<Button v-for="(filter, key) in filters" :text="filter.name" :key="key" tic-tac="left" color="brown" :icon="true" :icon-check="filter.check" @click="filterCheck(key)"></Button>
-					</template>
-				</box>
+				<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
 			</div>
 
 			<div class="adoption--list--container">
@@ -43,14 +37,12 @@
 <script>
 import Button from "../components/button/button";
 import BoxImg from "../components/box/boxImg";
-import Box from "../components/box/box";
+import Filters from "../components/filters/filters";
 export default {
 	name: "Adoption",
-	components: {Box, BoxImg, Button},
+	components: {Filters, BoxImg, Button},
 	data(){
 		return {
-			filter: false,
-
 			animalsList: [
 				{
 					name: `Trumpy`,
@@ -119,12 +111,12 @@ export default {
 						name: 'Chatons',
 						check: false,
 					},
-			]
+			],
 		}
 	},
 	methods:{
 		filterCheck(data){
-			console.log(data)
+			// console.log(data)
 			this.filters[data].check  = !this.filters[data].check
 		}
 	}
@@ -180,27 +172,6 @@ export default {
 				text-transform: uppercase;
 				color: $primary-brown;
 				//width: min-content;
-			}
-
-			.button{
-				color: $primary-brown;
-			}
-
-			&--filter{
-				position: absolute;
-				right: 0;
-				top: calc-rem(35);
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				background: $primary-beige;
-
-				.button{
-					margin: calc-rem(2) 0;
-					width: calc-rem(110);
-
-				}
-
 			}
 
 		}
