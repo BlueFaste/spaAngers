@@ -41,6 +41,7 @@ export default {
 @import "src/styles/mixims";
 
 .filters {
+	position: relative;
 	.button {
 		color: $primary-brown;
 	}
