@@ -61,12 +61,8 @@
 					<h2>Newsletter</h2>
 					<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
 						de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
-					<form class="home--newsletter--container--tictac-left">
-						<input type="email" placeholder="Votre adresse e-mail"
-								class="home--newsletter--container--input home--newsletter--container--input-email">
-						<input type="submit" class="home--newsletter--container--input home--newsletter--container--input-submit"
-								value=">" @click.prevent="newsLetter">
-					</form>
+
+					<Form></Form>
 
 				</div>
 				<img :src="require('@/assets/brown-wave.svg')" alt=""
@@ -93,10 +89,12 @@ import Button from "../components/button/button";
 import Box from "../components/box/box";
 import BoxImg from "../components/box/boxImg";
 import BoxImgText from "../components/box/boxImgText";
+import Form from "../components/form/form";
 
 export default {
 	name: 'Home',
 	components: {
+		Form,
 		BoxImgText,
 		BoxImg,
 		Box,
@@ -326,27 +324,6 @@ export default {
 
 			h2 {
 				text-transform: uppercase;
-			}
-
-			@include button-tictac {
-				display: flex;
-				background: white;
-				padding: calc-rem(10);
-			}
-
-			&--input {
-
-				border: none;
-				background: white;
-
-				&-email {
-					width: 72vw;
-					border-radius: 20px;
-				}
-
-				&-submit {
-					border-radius: 20px;
-				}
 			}
 
 		}
