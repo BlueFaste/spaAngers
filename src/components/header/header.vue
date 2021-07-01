@@ -86,12 +86,12 @@ export default {
 	&--design{
 		position: absolute;
 		bottom: -5vh;
-		left: 0;
+		left: -1vw;
 		z-index: -1;
-		width: 100vw;
+		width: 101vw;
 		overflow: hidden;
 		img{
-			width: 101vw;
+			width: 103vw;
 
 		}
 

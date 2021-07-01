@@ -274,12 +274,13 @@ export default {
 
 			h2 {
 				text-transform: uppercase;
-				width: calc-rem(200);
-				font-size: calc-rem(22);
+				//width: calc-rem(200);
+				//font-size: calc-rem(22);
 			}
 
 			.btn {
 				font-size: calc-rem(13);
+				width: max-content !important;
 			}
 
 		}
