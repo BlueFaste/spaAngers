@@ -44,7 +44,7 @@
 		<div class="home--actu">
 			<div class="home--actu--header">
 				<h2> Les dernières actualités</h2>
-				<router-link to="/" class="home--refuge--discover">
+				<router-link to="/actuality" class="home--refuge--discover">
 					<Button text="Tout voir" ticTac="left" color="orange"></Button>
 				</router-link>
 			</div>

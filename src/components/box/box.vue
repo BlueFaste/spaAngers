@@ -33,9 +33,8 @@ export default {
 	@include box-tictac;
 
 	padding: calc-rem(15);
-	margin: calc-rem(20);
 	//width: max-content;
-	max-width: 50%;
+	max-width: max-content;
 
 	//background: rgba( 255, 236, 222, 0.45 );
 	backdrop-filter: blur( 14.0px );
