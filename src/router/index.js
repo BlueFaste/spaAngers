@@ -13,6 +13,9 @@ const routes = [
   },
   {
     path: '/actuality',
+    name: 'ActualityListing',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Actuality/ActualityListing.vue'),
+  },
     name: 'Actuality',
     component: () => import(/* webpackChunkName: "about" */ '../views/Actuality.vue')
   },

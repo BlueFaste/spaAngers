@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Box from "../components/box/box";
-import BoxImg from "../components/box/boxImg";
-import Button from "../components/button/button";
+import Box from "../../components/box/box";
+import BoxImg from "../../components/box/boxImg";
+import Button from "../../components/button/button";
 export default {
 	name: "Actuality",
 	components: {Button, BoxImg, Box},
