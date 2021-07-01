@@ -18,7 +18,7 @@
 						class="home--call-action--background-bubble home--call-action--background-bubble-3">
 			</div>
 			<div class="home--call-action--donation">
-				<img :src="require('@/assets/dog-orange-circle.svg')" alt="">
+				<img :src="require('@/assets/dog-orange-circle.webp')" alt="">
 				<p>Comme chaque année, le combat contre l'abandon des animaux continue.
 					Aidez la SPAA Angers.</p>
 				<router-link to="/">
