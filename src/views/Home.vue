@@ -54,30 +54,28 @@
 						:link="actu.link" :key="key" tictac="left"></box-img>
 			</div>
 
-			<div class="home--newsletter">
-				<img :src="require('@/assets/brown-wave.svg')" alt=""
-						class="home--newsletter--design home--newsletter--design-top">
-				<div class="home--newsletter--container">
-					<h2>Newsletter</h2>
-					<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
-						de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
+		<div class="home--newsletter">
+			<img :src="require('@/assets/brown-wave.svg')" alt=""
+					class="home--newsletter--design home--newsletter--design-top">
+			<div class="home--newsletter--container">
+				<h2>Newsletter</h2>
+				<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
+					de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
 
-					<Form></Form>
+				<Form></Form>
 
-				</div>
-				<img :src="require('@/assets/brown-wave.svg')" alt=""
-						class="home--newsletter--design home--newsletter--design-down">
 			</div>
+			<img :src="require('@/assets/brown-wave.svg')" alt=""
+					class="home--newsletter--design home--newsletter--design-down">
+		</div>
 
-			<div class="home--help">
-				<h2>Comment nous aider ?</h2>
-				<div class="home--help-container">
-					<box-img-text v-for="(help, key) in helpList" :key="key" :text="help.text" :link="help.link"
-							:tictac="help.tictac" :btn-text="help.btnText" :btn-tictac="help.btnTictac"
-							:btn-color="help.btnColor"></box-img-text>
-				</div>
+		<div class="home--help">
+			<h2>Comment nous aider ?</h2>
+			<div class="home--help-container">
+				<box-img-text v-for="(help, key) in helpList" :key="key" :text="help.text" :link="help.link"
+						:tictac="help.tictac" :btn-text="help.btnText" :btn-tictac="help.btnTictac"
+						:btn-color="help.btnColor"></box-img-text>
 			</div>
-
 		</div>
 	</div>
 </template>
