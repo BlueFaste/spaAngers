@@ -9,22 +9,68 @@
 			</div>
 		</header>
 		<ul class="nav--list">
-			<li>
+			<li @click="$emit('close')">
 				<router-link to="/">
 					Accueil
 				</router-link>
 			</li>
-			<li>
+			<li @click="$emit('close')">
 				<router-link to="/">
-					Donation
+					Nos combats
 				</router-link>
 			</li>
 			<li>
+				<span @click="toggleSubMenuAnimal()">Les animaux <img :src="require('@/assets/chevron-nav.svg')"
+						alt="" class="nav--list--icon" id="icon-animal"></span>
+				<ul class=" nav--list--subMenu" v-show="subMenuAnimal">
+					<li @click="$emit('close')">
+						<router-link to="/animals/adoption">
+							à adopter
+						</router-link>
+					</li>
+					<li @click="$emit('close')">
+						<router-link to="/animals/lost">
+							perdus
+						</router-link>
+					</li>
+					<li @click="$emit('close')">
+						<router-link to="/animals/find">
+							trouvés
+						</router-link>
+					</li>
+				</ul>
+			</li>
+			<li @click="$emit('close')">
 				<router-link to="/">
-					Adopter
+					Donations
+				</router-link>
+			</li>
+			<li @click="$emit('close')">
+				<router-link to="/">
+					Abandons
 				</router-link>
 			</li>
 			<li>
+				<span @click="toggleSubMenuBlog()">Blog <img :src="require('@/assets/chevron-nav.svg')" alt="" class="nav--list--icon" id="icon-blog"></span>
+				<ul class="nav--list--subMenu nav--list--subMenu--blog" v-show="subMenuBlog">
+					<li @click="$emit('close')">
+						<router-link to="/animals/adoption">
+							à adopter
+						</router-link>
+					</li>
+					<li @click="$emit('close')">
+						<router-link to="/animals/lost">
+							perdus
+						</router-link>
+					</li>
+					<li @click="$emit('close')">
+						<router-link to="/animals/find">
+							trouvés
+						</router-link>
+					</li>
+				</ul>
+			</li>
+			<li @click="$emit('close')">
 				<router-link to="/">
 					Contact
 				</router-link>
@@ -43,7 +89,33 @@
 
 <script>
 export default {
-	name: "navigation"
+	name: "navigation",
+	data() {
+		return {
+			subMenuAnimal: false,
+			subMenuBlog: false,
+		}
+	},
+	methods: {
+		toggleSubMenuAnimal() {
+			this.subMenuAnimal = !this.subMenuAnimal;
+			const icon = document.getElementById('icon-animal')
+			if(this.subMenuAnimal){
+				icon.classList.add('nav--list--icon--open')
+			} else {
+				icon.classList.remove('nav--list--icon--open')
+			}
+		},
+	toggleSubMenuBlog() {
+			this.subMenuBlog = !this.subMenuBlog;
+			const icon = document.getElementById('icon-blog')
+		if(this.subMenuAnimal){
+			icon.classList.add('nav--list--icon--open')
+		} else {
+			icon.classList.remove('nav--list--icon--open')
+		}
+		},
+	}
 }
 </script>
 
@@ -84,7 +156,25 @@ export default {
 		font-size: calc-rem(25);
 
 		li {
-			margin: calc-rem(15) 0;
+			margin: calc-rem(0) 0;
+
+		}
+
+		&--subMenu {
+			font-size: calc-rem(18);
+			list-style: none;
+			text-align: right;
+			width: 50vw;
+
+			&--blog{
+				width: 50vw;
+			}
+		}
+
+		&--icon{
+			&--open{
+				transform: rotate(180deg);
+			}
 		}
 	}
 
@@ -94,6 +184,7 @@ export default {
 		bottom: 0;
 		right: 0;
 		object-fit: contain;
+		z-index: -1;
 	}
 
 	&--background {
