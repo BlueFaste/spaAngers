@@ -167,7 +167,6 @@ export default {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: calc-rem(10);
-			position: relative;
 			h2{
 				text-transform: uppercase;
 				color: $primary-brown;
@@ -179,7 +178,7 @@ export default {
 		&--container {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: space-around;
+			justify-content: space-between;
 
 			.box-img {
 				width: 38vw !important;
