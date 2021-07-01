@@ -4,17 +4,17 @@
 			<router-link to="/" class="nav--header-logo">
 				<img src="https://www.la-spa.fr/sites/all/themes/bluemasters/logo.svg" alt="">
 			</router-link>
-			<div @click="$emit('close')">
+			<div @click="close()">
 				<img :src="require('@/assets/close-burger-menu.svg')" alt="">
 			</div>
 		</header>
 		<ul class="nav--list">
-			<li @click="$emit('close')">
+			<li @click="close()">
 				<router-link to="/">
 					Accueil
 				</router-link>
 			</li>
-			<li @click="$emit('close')">
+			<li @click="close()">
 				<router-link to="/">
 					Nos combats
 				</router-link>
@@ -23,54 +23,55 @@
 				<span @click="toggleSubMenuAnimal()">Les animaux <img :src="require('@/assets/chevron-nav.svg')"
 						alt="" class="nav--list--icon" id="icon-animal"></span>
 				<ul class=" nav--list--subMenu" v-show="subMenuAnimal">
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/adoption">
 							à adopter
 						</router-link>
 					</li>
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/lost">
 							perdus
 						</router-link>
 					</li>
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/find">
 							trouvés
 						</router-link>
 					</li>
 				</ul>
 			</li>
-			<li @click="$emit('close')">
+			<li @click="close()">
 				<router-link to="/">
 					Donations
 				</router-link>
 			</li>
-			<li @click="$emit('close')">
+			<li @click="close()">
 				<router-link to="/">
 					Abandons
 				</router-link>
 			</li>
 			<li>
-				<span @click="toggleSubMenuBlog()">Blog <img :src="require('@/assets/chevron-nav.svg')" alt="" class="nav--list--icon" id="icon-blog"></span>
+				<span @click="toggleSubMenuBlog()">Blog <img :src="require('@/assets/chevron-nav.svg')" alt=""
+						class="nav--list--icon" id="icon-blog"></span>
 				<ul class="nav--list--subMenu nav--list--subMenu--blog" v-show="subMenuBlog">
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/adoption">
 							à adopter
 						</router-link>
 					</li>
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/lost">
 							perdus
 						</router-link>
 					</li>
-					<li @click="$emit('close')">
+					<li @click="close()">
 						<router-link to="/animals/find">
 							trouvés
 						</router-link>
 					</li>
 				</ul>
 			</li>
-			<li @click="$emit('close')">
+			<li @click="close()">
 				<router-link to="/">
 					Contact
 				</router-link>
@@ -100,21 +101,27 @@ export default {
 		toggleSubMenuAnimal() {
 			this.subMenuAnimal = !this.subMenuAnimal;
 			const icon = document.getElementById('icon-animal')
-			if(this.subMenuAnimal){
+			if(this.subMenuAnimal) {
 				icon.classList.add('nav--list--icon--open')
 			} else {
 				icon.classList.remove('nav--list--icon--open')
 			}
 		},
-	toggleSubMenuBlog() {
+		toggleSubMenuBlog() {
 			this.subMenuBlog = !this.subMenuBlog;
 			const icon = document.getElementById('icon-blog')
-		if(this.subMenuAnimal){
-			icon.classList.add('nav--list--icon--open')
-		} else {
-			icon.classList.remove('nav--list--icon--open')
-		}
+			if(this.subMenuAnimal) {
+				icon.classList.add('nav--list--icon--open')
+			} else {
+				icon.classList.remove('nav--list--icon--open')
+			}
 		},
+
+		close(){
+			this.subMenuAnimal = false;
+			this.subMenuBlog = false;
+			this.$emit('close');
+		}
 	}
 }
 </script>
@@ -166,13 +173,13 @@ export default {
 			text-align: right;
 			width: 50vw;
 
-			&--blog{
+			&--blog {
 				width: 50vw;
 			}
 		}
 
-		&--icon{
-			&--open{
+		&--icon {
+			&--open {
 				transform: rotate(180deg);
 			}
 		}
