@@ -10,7 +10,7 @@
 	</div>
 	<div class="actuality--container">
 		<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-				:link="actu.link" :key="key" tictac="left"></box-img>
+				:link="`/actuality/${key}`" :key="key" tictac="left"></box-img>
 	</div>
 	<Button text="Voir plus" ticTac="left" color="orange"></Button>
 </div>
