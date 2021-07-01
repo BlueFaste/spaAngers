@@ -1,6 +1,18 @@
 <template>
 	<div class="home">
 		<div class="home--call-action">
+			<div class="home--call-action--donation">
+				<img :src="require('@/assets/dog-orange-circle.webp')" alt="">
+				<p>Comme chaque année, le combat contre l'abandon des animaux continue.
+					Aidez la SPAA Angers.</p>
+				<router-link to="/">
+					<Button text="Faire un don" ticTac="rigth" color="orange"></Button>
+				</router-link>
+				<router-link to="/adoption">
+					<Button text="Adopter" ticTac="rigth" color="brown"></Button>
+				</router-link>
+
+			</div>
 			<div class="home--call-action--background ">
 				<img :src="require('@/assets/pawprint.svg')" alt=""
 						class="home--call-action--background-paw home--call-action--background-paw-1">
@@ -16,18 +28,6 @@
 						class="home--call-action--background-bubble home--call-action--background-bubble-2">
 				<img :src="require('@/assets/bubble.svg')" alt=""
 						class="home--call-action--background-bubble home--call-action--background-bubble-3">
-			</div>
-			<div class="home--call-action--donation">
-				<img :src="require('@/assets/dog-orange-circle.webp')" alt="">
-				<p>Comme chaque année, le combat contre l'abandon des animaux continue.
-					Aidez la SPAA Angers.</p>
-				<router-link to="/">
-					<Button text="Faire un don" ticTac="rigth" color="orange"></Button>
-				</router-link>
-				<router-link to="/">
-					<Button text="Adopter" ticTac="rigth" color="brown"></Button>
-				</router-link>
-
 			</div>
 		</div>
 		<div class="home--refuge">
