@@ -1,5 +1,8 @@
 <template>
-	<b-button class="button" :class="rootClasses()">{{ text }}</b-button>
+	<b-button class="button" :class="rootClasses()" @click="$emit('click')">
+		<span v-if="icon" class="button--icon button--icon button--icon--tictac-left" :class="iconClasses()"></span>
+		{{ text }}
+	</b-button>
 
 </template>
 
@@ -10,12 +13,19 @@ export default {
 		text: String,
 		ticTac: String,
 		color: String,
+		icon: Boolean,
+		iconCheck: Boolean,
 	},
 	methods: {
 		rootClasses() {
 			return [{
 				[`button--tictac-${this.ticTac}`]: this.ticTac,
 				[`button--color-${this.color}`]: this.color,
+			}]
+		},
+		iconClasses() {
+			return [{
+				[`button--icon--check`]: this.iconCheck,
 			}]
 		}
 	}
@@ -33,16 +43,20 @@ export default {
 	border: none !important;
 	text-transform: uppercase;
 	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	&--color-orange{
+	&--color-orange {
 		background-color: $primary-orange !important;
 		@include hover {
 			background-color: darken($primary-orange, 10%) !important;
 		}
 	}
 
-	&--color-brown{
+	&--color-brown {
 		background-color: $primary-brown !important;
+		color: $primary-beige !important;
 
 		@include hover {
 			background-color: darken($primary-brown, 10%) !important;
@@ -50,8 +64,30 @@ export default {
 
 	}
 
+	&--color-beige {
+		background-color: $primary-beige !important;
+
+		@include hover {
+			background-color: darken($primary-beige, 10%) !important;
+		}
+
+	}
+
 
 	@include active;
 	@include button-tictac;
+
+	&--icon {
+		@include button-tictac;
+		margin-right: calc-rem(5);
+		display: block;
+		width: calc-rem(15);
+		height: calc-rem(12);
+		border: solid $primary-beige;
+
+		&--check {
+			background: $primary-beige;
+		}
+	}
 }
 </style>
