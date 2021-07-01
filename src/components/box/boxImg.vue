@@ -41,6 +41,7 @@ export default {
 .box-img {
 	@include button-tictac;
 
+	background: no-repeat center center;
 	background-image: url("../../assets/edgar-kitten.jpg");
 	background-size: cover;
 	width: 70vw;

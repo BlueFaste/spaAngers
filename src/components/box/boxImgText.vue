@@ -38,6 +38,7 @@ export default {
 .box-img-text{
 	@include button-tictac;
 
+	background: no-repeat center center;
 	background-image: url("../../assets/benevole.jpg");
 	background-size: cover;
 	backdrop-filter: darken(black, 30%);

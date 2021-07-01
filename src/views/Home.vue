@@ -228,8 +228,8 @@ export default {
 	}
 
 	&--refuge {
+		background: no-repeat center center;
 		background-image: url("../assets/refuge-vague.svg");
-		background-repeat: no-repeat;
 		background-size: cover;
 		width: 100vw;
 		height: 70vh;
