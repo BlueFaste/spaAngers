@@ -72,6 +72,16 @@
 				<img :src="require('@/assets/brown-wave.svg')" alt=""
 						class="home--newsletter--design home--newsletter--design-down">
 			</div>
+
+			<div class="home--help">
+				<h2>Comment nous aider ?</h2>
+				<div class="home--help-container">
+					<box-img-text v-for="(help, key) in helpList" :key="key" :text="help.text" :link="help.link"
+							:tictac="help.tictac" :btn-text="help.btnText" :btn-tictac="help.btnTictac"
+							:btn-color="help.btnColor"></box-img-text>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -82,10 +92,12 @@
 import Button from "../components/button/button";
 import Box from "../components/box/box";
 import BoxImg from "../components/box/boxImg";
+import BoxImgText from "../components/box/boxImgText";
 
 export default {
 	name: 'Home',
 	components: {
+		BoxImgText,
 		BoxImg,
 		Box,
 		Button
@@ -103,11 +115,41 @@ export default {
 					link: '/',
 					img: '',
 				},
-			{
+				{
 					name: 'Stériliser son animal',
 					link: '/',
 					img: '',
 				},
+			],
+			helpList: [
+				{
+					text: 'Vous souhaitez nous aider en nous accordant du temps et en partageant votre passion et votre savoir-faire ? Alors rejoignez les 4 000 bénévoles de la SPA !',
+					link: '/',
+					tictac: 'rigth',
+					btnText: 'Je deviens bénévole',
+					btnTictac: 'rigth',
+					btnColor: 'orange',
+					image: '',
+				},
+				{
+					text: 'Venez découvrir les animaux de nos refuges et permettez à l\'un d\'entre eux d\'être adopté et de passer le reste de sa vie dans une famille bienveillante !',
+					link: '/',
+					tictac: 'rigth',
+					btnText: 'J\'adopte un animal',
+					btnTictac: 'rigth',
+					btnColor: 'orange',
+					image: '',
+				},
+				{
+					text: 'Aidez-nous à mener à bien nos missions ! La SPA vit principalement de la générosité du public et compte donc sur votre soutien pour secourir, défendre et protéger les animaux.',
+					link: '/',
+					tictac: 'rigth',
+					btnText: 'Je fais un don',
+					btnTictac: 'rigth',
+					btnColor: 'orange',
+					image: '',
+				},
+
 			]
 		}
 	},
@@ -259,6 +301,7 @@ export default {
 			}
 		}
 	}
+
 	&--newsletter {
 
 		&--design {
@@ -307,6 +350,11 @@ export default {
 			}
 
 		}
+	}
+
+	&--help{
+		margin: calc-rem(20);
+
 	}
 }
 </style>
