@@ -38,7 +38,7 @@ export default {
 .box-img-text{
 	@include button-tictac;
 
-	background-image: url("../../assets/edgar-kitten.jpg");
+	background-image: url("../../assets/benevole.jpg");
 	background-size: cover;
 	backdrop-filter: darken(black, 30%);
 	color: white;
