@@ -6,7 +6,7 @@
 			<h2>Newsletter</h2>
 			<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
 				de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
-			<Form></Form>
+			<Form @submit="newsLetter"></Form>
 		</div>
 		<img :src="require('@/assets/brown-wave.svg')" alt=""
 				class="newsletter--design newsletter--design-down">
@@ -17,7 +17,12 @@
 import Form from "../form/form";
 export default {
 	name: "Newsletter",
-	components: {Form}
+	components: {Form},
+	methods: {
+		newsLetter() {
+			console.log('newsLetter')
+		}
+	}
 }
 </script>
 

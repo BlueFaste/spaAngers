@@ -137,11 +137,6 @@ export default {
 			]
 		}
 	},
-	methods: {
-		newsLetter() {
-			console.log('newsLetter')
-		}
-	}
 }
 </script>
 
