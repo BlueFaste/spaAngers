@@ -8,7 +8,7 @@
 				<router-link to="/">
 					<Button text="Faire un don" ticTac="rigth" color="orange"></Button>
 				</router-link>
-				<router-link to="/adoption">
+				<router-link to="/animals/adoption">
 					<Button text="Adopter" ticTac="rigth" color="brown"></Button>
 				</router-link>
 
@@ -130,7 +130,7 @@ export default {
 				},
 				{
 					text: 'Venez découvrir les animaux de nos refuges et permettez à l\'un d\'entre eux d\'être adopté et de passer le reste de sa vie dans une famille bienveillante !',
-					link: '/adoption',
+					link: '/animals/adoption',
 					tictac: 'rigth',
 					btnText: 'J\'adopte un animal',
 					btnTictac: 'rigth',
