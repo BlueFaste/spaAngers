@@ -2,14 +2,20 @@
 	<div class="home">
 		<div class="home--call-action">
 			<div class="home--call-action--background ">
-				<img :src="require('@/assets/pawprint.svg')" alt="" class="home--call-action--background-paw home--call-action--background-paw-1">
-				<img :src="require('@/assets/pawprint.svg')" alt="" class="home--call-action--background-paw home--call-action--background-paw-2">
-				<img :src="require('@/assets/pawprint.svg')" alt="" class="home--call-action--background-paw home--call-action--background-paw-3">
+				<img :src="require('@/assets/pawprint.svg')" alt=""
+						class="home--call-action--background-paw home--call-action--background-paw-1">
+				<img :src="require('@/assets/pawprint.svg')" alt=""
+						class="home--call-action--background-paw home--call-action--background-paw-2">
+				<img :src="require('@/assets/pawprint.svg')" alt=""
+						class="home--call-action--background-paw home--call-action--background-paw-3">
 			</div>
 			<div class="home--call-action--background ">
-				<img :src="require('@/assets/bubble.svg')" alt="" class="home--call-action--background-bubble home--call-action--background-bubble-1">
-				<img :src="require('@/assets/bubble.svg')" alt="" class="home--call-action--background-bubble home--call-action--background-bubble-2">
-				<img :src="require('@/assets/bubble.svg')" alt="" class="home--call-action--background-bubble home--call-action--background-bubble-3">
+				<img :src="require('@/assets/bubble.svg')" alt=""
+						class="home--call-action--background-bubble home--call-action--background-bubble-1">
+				<img :src="require('@/assets/bubble.svg')" alt=""
+						class="home--call-action--background-bubble home--call-action--background-bubble-2">
+				<img :src="require('@/assets/bubble.svg')" alt=""
+						class="home--call-action--background-bubble home--call-action--background-bubble-3">
 			</div>
 			<div class="home--call-action--donation">
 				<img :src="require('@/assets/dog-orange-circle.svg')" alt="">
@@ -27,13 +33,27 @@
 		<div class="home--refuge">
 			<box background="beige" tic-tac="rigth" size="50">
 				<template v-slot:content>
-					<h1>Le refuge</h1>
+					<h2>Le refuge</h2>
 					<p>Découvrez notre refuge en cliquant ci-dessous</p>
 				</template>
 			</box>
 			<router-link to="/" class="home--refuge--discover">
 				<Button text="Découvrir" ticTac="left" color="orange"></Button>
 			</router-link>
+		</div>
+		<div class="home--actu">
+			<div class="home--actu--header">
+				<h2> Les dernières actualités</h2>
+				<router-link to="/" class="home--refuge--discover">
+					<Button text="Tout voir" ticTac="left" color="orange"></Button>
+				</router-link>
+			</div>
+
+			<div class="home--actu--slider">
+				<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
+						:link="actu.link" :key="key" tictac="left"></box-img>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -43,11 +63,35 @@
 
 import Button from "../components/button/button";
 import Box from "../components/box/box";
+import BoxImg from "../components/box/boxImg";
+
 export default {
 	name: 'Home',
 	components: {
+		BoxImg,
 		Box,
 		Button
+	},
+	data() {
+		return {
+			actuList: [
+				{
+					name: `Les actualités du mois de juin 2021`,
+					link: '/',
+					img: '',
+				},
+				{
+					name: 'Comment toiletter son chien',
+					link: '/',
+					img: '',
+				},
+			{
+					name: 'Stériliser son animal',
+					link: '/',
+					img: '',
+				},
+			]
+		}
 	}
 }
 </script>
@@ -56,71 +100,73 @@ export default {
 @import 'src/styles/variables';
 @import "src/styles/functions";
 @import "src/styles/mixims";
+
 .home {
 
-	&--call-action{
+	&--call-action {
 		height: 85vh;
 
-		&--donation{
+		&--donation {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			padding-top: calc-rem(70);
 
-			p{
+			p {
 				margin: calc-rem(20) calc-rem(50);
 				text-align: center;
 			}
 
-			button{
+			button {
 				width: 50vw;
 			}
 		}
 
-		&--background{
+		&--background {
 			position: absolute;
 			height: 90vh;
 			width: 100vw;
 			overflow-x: hidden;
 
-			&-paw, &-bubble{
+			&-paw, &-bubble {
 				position: absolute;
 
 			}
 
-			&-paw{
-				&-1{
+			&-paw {
+				&-1 {
 					transform: scale(0.8);
 					left: 60vw;
 					top: -5vw
 				}
 
-				&-2{
+				&-2 {
 					transform: scale(1.5) rotate(40deg);
 					left: -20vw;
 					bottom: 20vh;
 				}
 
-				&-3{
+				&-3 {
 					transform: scale(0.5);
 					bottom: 2vh;
 					left: 60vw;
 				}
 			}
 
-			&-bubble{
-				&-1{
+			&-bubble {
+				&-1 {
 					transform: scale(1.2);
 					top: 8vh;
 					left: -6vw;
 				}
 
-				&-2{
+				&-2 {
 					left: 90vw;
 					top: 15vh;
 				}
 
-				&-3{
+				&-3 {
 					transform: scale(0.5);
 					left: 5vw;
 					top: 30vh;
@@ -130,7 +176,7 @@ export default {
 
 	}
 
-	&--refuge{
+	&--refuge {
 		background-image: url("../assets/refuge-vague.svg");
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -141,12 +187,52 @@ export default {
 		flex-direction: column;
 		justify-content: space-between;
 
-		&--discover{
+		h2 {
+			font-size: calc-rem(20);
+		}
+
+		&--discover {
 			align-self: flex-end !important;
-			.btn{
-				backdrop-filter: blur( 14.0px );
-				-webkit-backdrop-filter: blur( 14.0px );
-				background: $primary-orange-rgba !important;
+			//.btn{
+			//	backdrop-filter: blur( 14.0px );
+			//	-webkit-backdrop-filter: blur( 14.0px );
+			//	background: $primary-orange-rgba !important;
+			//}
+		}
+	}
+
+	&--actu {
+		//padding: 0 calc-rem(30);
+		&--header {
+			padding: 0 calc-rem(30);
+			display: flex;
+			justify-content: space-between;
+			margin: calc-rem(10) 0 calc-rem(20) 0;
+
+			h2 {
+				text-transform: uppercase;
+				width: calc-rem(200);
+				font-size: calc-rem(22);
+			}
+
+			.btn {
+				font-size: calc-rem(13);
+			}
+
+		}
+
+		&--slider {
+			display: flex;
+			width: 100vw;
+			overflow: scroll;
+
+			scroll-snap-type: x mandatory;
+
+			.box-img {
+				flex-grow: 1;
+				flex-shrink: 0;
+				//flex-basis: 450px;
+				scroll-snap-align: start;
 			}
 		}
 	}

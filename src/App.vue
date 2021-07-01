@@ -28,12 +28,21 @@ export default {
 	h1{
 		font-weight: bold;
 	}
+
+	h2{
+		font-size: calc-rem(20);
+		margin: 0;
+		font-weight: bold;
+	}
+
+	a{
+		text-decoration: none;
+	}
 }
 
 #nav {
   padding: 30px;
 	a{
-		text-decoration: none;
 		color: $primary-orange;
 	}
 }
