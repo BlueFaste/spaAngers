@@ -55,20 +55,7 @@
 			</div>
 		</div>
 
-		<div class="home--newsletter">
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="home--newsletter--design home--newsletter--design-top">
-			<div class="home--newsletter--container">
-				<h2>Newsletter</h2>
-				<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
-					de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
-
-				<Form></Form>
-
-			</div>
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="home--newsletter--design home--newsletter--design-down">
-		</div>
+	<Newsletter></Newsletter>
 
 		<div class="home--help">
 			<h2>Comment nous aider ?</h2>
@@ -88,12 +75,12 @@ import Button from "../components/button/button";
 import Box from "../components/box/box";
 import BoxImg from "../components/box/boxImg";
 import BoxImgText from "../components/box/boxImgText";
-import Form from "../components/form/form";
+import Newsletter from "../components/newsletter/Newsletter";
 
 export default {
 	name: 'Home',
 	components: {
-		Form,
+		Newsletter,
 		BoxImgText,
 		BoxImg,
 		Box,
@@ -299,35 +286,6 @@ export default {
 				//flex-basis: 450px;
 				scroll-snap-align: start;
 			}
-		}
-	}
-
-	&--newsletter {
-
-		&--design {
-			width: 100vw;
-
-			&-top {
-				-webkit-transform: scaleY(-1);
-				transform: scaleY(-1);
-				margin-bottom: -1px;
-			}
-
-			&-down {
-				margin-top: -1px;
-			}
-		}
-
-		&--container {
-			background: $primary-brown;
-			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
-			color: white;
-			padding: calc-rem(20) calc-rem(30);
-
-			h2 {
-				text-transform: uppercase;
-			}
-
 		}
 	}
 
