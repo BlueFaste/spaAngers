@@ -55,8 +55,8 @@
 						class="nav--list--icon" id="icon-blog"></span>
 				<ul class="nav--list--subMenu nav--list--subMenu--blog" v-show="subMenuBlog">
 					<li @click="close()">
-						<router-link to="/animals/adoption">
-							à adopter
+						<router-link to="/actuality">
+							Actualités
 						</router-link>
 					</li>
 					<li @click="close()">
@@ -120,6 +120,10 @@ export default {
 		close(){
 			this.subMenuAnimal = false;
 			this.subMenuBlog = false;
+			const animalIcon= document.getElementById('icon-animal')
+			const blogIcon= document.getElementById('icon-blog')
+			animalIcon.classList.remove('nav--list--icon--open')
+			blogIcon.classList.remove('nav--list--icon--open')
 			this.$emit('close');
 		}
 	}
