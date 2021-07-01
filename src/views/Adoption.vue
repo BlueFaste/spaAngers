@@ -24,8 +24,10 @@
 			</div>
 
 			<div class="adoption--list--container">
-				<box-img v-for="(actu, key) in animalsList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
+				<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 						:link="actu.link" :key="key" tictac="left"></box-img>
+				<p v-show="animalDisplayList.length == 0">Aucun animal n'est à adopter...</p>
+
 			</div>
 
 			<Button text="Voir plus" ticTac="left" color="orange"></Button>
@@ -41,6 +43,9 @@ import Filters from "../components/filters/filters";
 export default {
 	name: "Adoption",
 	components: {Filters, BoxImg, Button},
+	created() {
+		this.animalDisplayList = this.animalsList
+	},
 	data(){
 		return {
 			animalsList: [
@@ -93,22 +98,27 @@ export default {
 					animal:'cat',
 				},
 			],
+			animalDisplayList:[],
 
 			filters:[
 					{
 						name: 'Chiens',
+								animal:'dog',
 						check: false,
 					},
 			{
 						name: 'Chiots',
+						animal:'puppy',
 						check: false,
 					},
 			{
 						name: 'Chats',
+						animal:'cat',
 						check: false,
 					},
 			{
 						name: 'Chatons',
+						animal:'kitten',
 						check: false,
 					},
 			],
@@ -116,9 +126,26 @@ export default {
 	},
 	methods:{
 		filterCheck(data){
-			// console.log(data)
-			this.filters[data].check  = !this.filters[data].check
-		}
+			console.log(data)
+			let countFilterUncheck = 0;
+			// this.filters[data].check  = !this.filters[data].check;
+			this.animalDisplayList=[];
+			for(const filter in this.filters){
+				console.log(this.filters[filter])
+				if (this.filters[filter].check){
+					for(const animal in this.animalsList){
+						if (this.animalsList[animal].animal == this.filters[filter].animal){
+							this.animalDisplayList.push(this.animalsList[animal])
+						}
+					}
+				} else {
+					countFilterUncheck++
+				}
+			}
+			if(countFilterUncheck == this.filters.length){
+				this.animalDisplayList = this.animalsList
+			}
+		},
 	}
 }
 </script>
@@ -179,7 +206,9 @@ export default {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-
+			p{
+				color: $primary-orange;
+			}
 			.box-img {
 				width: 38vw !important;
 				height: 25vh;

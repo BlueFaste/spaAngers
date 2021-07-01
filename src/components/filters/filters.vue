@@ -27,9 +27,18 @@ export default {
 			showFilter: false,
 		}
 	},
-	methods: {
-		filterCheck(key) {
+	// methods: {
+	// 	filterCheck(key) {
+	// 		this.$emit('filterCheck', key)
+	// 	}
+	// },
+	methods:{
+		filterCheck(key){
+			// console.log(key)
+			this.filters[key].check  = !this.filters[key].check
 			this.$emit('filterCheck', key)
+
+
 		}
 	}
 }
