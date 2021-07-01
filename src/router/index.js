@@ -31,6 +31,18 @@ const routes = [
     name: 'FindListing',
     component: () => import(/* webpackChunkName: "about" */ '../views/Find/FindListing.vue')
   },
+
+
+
+
+  {
+    path: '*',
+    component: () => import(/* webpackChunkName: "error" */'../views/Error/404.vue')
+  },
+  {
+    path: '/500',
+    component: () => import(/* webpackChunkName: "error" */'../views/Error/500.vue')
+  },
   {
     path: '/about',
     name: 'About',
