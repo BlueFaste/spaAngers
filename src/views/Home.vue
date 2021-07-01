@@ -53,6 +53,7 @@
 				<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 						:link="actu.link" :key="key" tictac="left"></box-img>
 			</div>
+		</div>
 
 		<div class="home--newsletter">
 			<img :src="require('@/assets/brown-wave.svg')" alt=""
@@ -129,7 +130,7 @@ export default {
 				},
 				{
 					text: 'Venez découvrir les animaux de nos refuges et permettez à l\'un d\'entre eux d\'être adopté et de passer le reste de sa vie dans une famille bienveillante !',
-					link: '/',
+					link: '/adoption',
 					tictac: 'rigth',
 					btnText: 'J\'adopte un animal',
 					btnTictac: 'rigth',
@@ -189,6 +190,8 @@ export default {
 			height: 90vh;
 			width: 100vw;
 			overflow-x: hidden;
+			top: 12vh;
+			z-index: -1;
 
 			&-paw, &-bubble {
 				position: absolute;
