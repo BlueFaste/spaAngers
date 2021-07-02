@@ -54,7 +54,7 @@ footer {
 			background: $primary-brown;
 			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
 			color: white;
-			padding: calc-rem(20) calc-rem(30);
+			padding: calc-rem(20) calc-rem($margin-border);
 
 			p {
 				margin: 0;

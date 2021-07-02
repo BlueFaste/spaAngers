@@ -146,7 +146,6 @@ export default {
 @import "src/styles/mixims";
 
 .home {
-
 	&--call-action {
 		height: 85vh;
 
@@ -251,7 +250,7 @@ export default {
 	&--actu {
 		//padding: 0 calc-rem(30);
 		&--header {
-			padding: 0 calc-rem(30);
+			padding: 0 calc-rem($margin-border);
 			display: flex;
 			justify-content: space-between;
 			margin: calc-rem(10) 0 calc-rem(20) 0;
@@ -286,7 +285,7 @@ export default {
 	}
 
 	&--help {
-		margin: calc-rem(20);
+		margin: calc-rem($margin-border);
 
 	}
 }

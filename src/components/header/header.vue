@@ -56,7 +56,7 @@ export default {
 
 .header {
 	background: $primary-beige;
-	padding: calc-rem(32) calc-rem(32) 0 calc-rem(32);
+	padding: calc-rem(32) calc-rem(30) 0 calc-rem(30);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
