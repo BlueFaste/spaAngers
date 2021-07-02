@@ -110,7 +110,7 @@ export default {
 		toggleSubMenuBlog() {
 			this.subMenuBlog = !this.subMenuBlog;
 			const icon = document.getElementById('icon-blog')
-			if(this.subMenuAnimal) {
+			if(this.subMenuBlog) {
 				icon.classList.add('nav--list--icon--open')
 			} else {
 				icon.classList.remove('nav--list--icon--open')
