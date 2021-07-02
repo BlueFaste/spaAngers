@@ -93,22 +93,22 @@ export default {
 			actuList: [
 				{
 					name: `Les actualités du mois de juin 2021`,
-					link: '/',
+					link: '/actuality/1',
 					img: '',
 				},
 				{
 					name: 'Comment toiletter son chien',
-					link: '/',
+					link: '/actuality/1',
 					img: '',
 				},
 				{
 					name: 'Stériliser son animal',
-					link: '/',
+					link: '/actuality/1',
 					img: '',
 				},
 				{
 					name: 'Stériliser son animal',
-					link: '/',
+					link: '/actuality/1',
 					img: '',
 				},
 

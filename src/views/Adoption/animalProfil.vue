@@ -107,25 +107,25 @@ export default {
 			animalsList: [
 				{
 					name: `Trumpy`,
-					link: '/',
+					link: '/animals/adoption/1',
 					img: '',
 					animal: 'cat',
 				},
 				{
 					name: 'Titi Jr',
-					link: '/',
+					link: '/animals/adoption/2',
 					img: '',
 					animal: 'dog',
 				},
 				{
 					name: 'Mélania',
-					link: '/',
+					link: '/animals/adoption/3',
 					img: '',
 					animal: 'dog',
 				},
 				{
 					name: 'Obama',
-					link: '/',
+					link: '/animals/adoption/4',
 					img: '',
 					animal: 'puppy',
 				},
