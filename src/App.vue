@@ -2,6 +2,7 @@
   <div id="app">
 		<Header></Header>
     <router-view/>
+		<BackTop></BackTop>
 		<Footer></Footer>
   </div>
 </template>
@@ -10,9 +11,11 @@
 
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import BackTop from "./components/header/backTop";
 export default {
 	name: 'App',
 	components: {
+		BackTop,
 		Footer,
 		Header
 	}
