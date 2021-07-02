@@ -14,7 +14,7 @@ const routes = [
 	{
 		path: '/refuge',
 		name: 'refuge',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Actuality/ActualityListing.vue'),
+		component: () => import(/* webpackChunkName: "about" */ '../views/Refuge/Refuge.vue'),
 	},
 	{
 		path: '/actuality',
