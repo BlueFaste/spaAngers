@@ -164,10 +164,11 @@ export default {
 		font-weight: bold;
 		list-style: none;
 		color: $primary-orange;
-		font-size: calc-rem(25);
+		text-shadow: white 1px 1px, white -1px 1px, white -1px -1px, white 1px -1px;
+		font-size: calc-rem(20);
 
 		li {
-			margin: calc-rem(0) 0;
+			margin: calc-rem(5) 0;
 
 		}
 
@@ -175,10 +176,10 @@ export default {
 			font-size: calc-rem(18);
 			list-style: none;
 			text-align: right;
-			width: 50vw;
+			width: 40vw;
 
 			&--blog {
-				width: 50vw;
+				width: 30vw;
 			}
 		}
 
