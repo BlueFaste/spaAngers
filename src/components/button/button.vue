@@ -1,7 +1,8 @@
 <template>
 	<b-button class="button" :class="rootClasses()" @click="$emit('click')">
-		<span v-if="icon" class="button--icon button--icon button--icon--tictac-left" :class="iconClasses()"></span>
+		<span v-if="icon && !iconRigth" class="button--icon button--icon button--icon--tictac-left" :class="iconClasses()"></span>
 		{{ text }}
+		<span v-if="icon && iconRigth" class="button--chevron">></span>
 	</b-button>
 
 </template>
@@ -16,6 +17,7 @@ export default {
 		textColor: String,
 		icon: Boolean,
 		iconCheck: Boolean,
+		iconRigth: Boolean
 	},
 	methods: {
 		rootClasses() {
@@ -91,6 +93,11 @@ export default {
 		&--check {
 			background: $primary-beige;
 		}
+	}
+
+	&--chevron{
+		font-weight: initial !important;
+		margin-left: calc-rem(5);
 	}
 }
 </style>
