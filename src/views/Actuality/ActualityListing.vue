@@ -119,7 +119,7 @@ export default {
 @import "src/styles/mixims";
 
 .actuality {
-	margin: 0 calc-rem(30);
+	margin: 0 calc-rem($margin-border);
 	margin-top: calc-rem(70);
 	display: flex;
 	flex-direction: column;
@@ -145,8 +145,8 @@ export default {
 		justify-content: space-between;
 
 		.box-img {
-			width: 38vw !important;
-			height: 35vh;
+			width: 40vw !important;
+			height: 30vh;
 			margin: 0;
 			margin-bottom: calc-rem(20);
 			//font-size: calc-rem(11) !important;

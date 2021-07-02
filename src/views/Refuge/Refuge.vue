@@ -250,7 +250,7 @@ export default {
 	}
 
 	&--summary {
-		margin: 0 calc-rem(15);
+		margin: 0 calc-rem($margin-border);
 
 		&--button {
 
@@ -260,7 +260,7 @@ export default {
 
 			a {
 				flex-shrink: 3;
-				flex-basis: 44vw;
+				flex-basis: 43.5vw;
 			}
 
 			.button {
@@ -274,7 +274,7 @@ export default {
 
 	&--role {
 		&--white {
-			margin: calc-rem(30) calc-rem(15);
+			margin: calc-rem(30) calc-rem($margin-border);
 		}
 	}
 
@@ -297,7 +297,7 @@ export default {
 			background: $primary-brown;
 			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
 			color: white;
-			padding: calc-rem(20) calc-rem(30);
+			padding: calc-rem(20) calc-rem($margin-border);
 		}
 
 		h2, h3 {
@@ -307,7 +307,7 @@ export default {
 
 	&--resources {
 		&--white {
-			margin: 0 calc-rem(15);
+			margin: 0 calc-rem($margin-border);
 		}
 
 		&--brown {
@@ -345,11 +345,11 @@ export default {
 	}
 
 	&--hours {
-		margin: 0 calc-rem(15);
+		margin: 0 calc-rem($margin-border);
 	}
 
 	&--accessPlan {
-		margin: calc-rem(30) calc-rem(15);
+		margin: calc-rem(30) calc-rem($margin-border);
 
 		.mapouter {
 			position: relative;

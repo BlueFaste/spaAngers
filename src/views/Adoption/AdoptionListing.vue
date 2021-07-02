@@ -160,7 +160,7 @@ export default {
 
 	&--alert {
 
-		padding: calc-rem(50) calc-rem(30) calc-rem(10) calc-rem(30);
+		padding: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
 		background: $primary-orange;
 		color: white;
 		position: relative;
@@ -169,6 +169,7 @@ export default {
 		h2 {
 			text-transform: uppercase;
 			width: min-content;
+			color: white !important;
 		}
 
 		p {
@@ -184,7 +185,7 @@ export default {
 	}
 
 	&--list {
-		margin: 0 calc-rem(30);
+		margin: 0 calc-rem($margin-border);
 
 		display: flex;
 		flex-direction: column;
@@ -214,8 +215,8 @@ export default {
 			}
 
 			.box-img {
-				width: 38vw !important;
-				height: 25vh;
+				width: 40vw !important;
+				height: 30vh;
 				margin: 0;
 				margin-bottom: calc-rem(20);
 			}

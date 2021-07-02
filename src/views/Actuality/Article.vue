@@ -137,15 +137,15 @@ export default {
 	}
 
 	&--title {
-		margin: 0 calc-rem(30) !important;
+		margin: 0 calc-rem($margin-border) !important;
 		align-self: flex-start;
 	}
 
 	&--img {
 		@include button-tictac {
-			margin: 0 calc-rem(30);
+			margin: 0 calc-rem($margin-border);
 			margin-bottom: calc-rem(15);
-			width: 80vw;
+			width: 90%;
 			height: 70vw;
 			background: no-repeat center center;
 			background-image: url("../../assets/edgar-kitten.jpg");
@@ -154,11 +154,11 @@ export default {
 	}
 
 	&--text {
-		margin: 0 calc-rem(30);
+		margin: 0 calc-rem($margin-border);
 	}
 
 	&--other {
-		margin: 0 calc-rem(30);
+		margin: 0 calc-rem($margin-border);
 
 		&--container {
 			display: flex;
@@ -166,7 +166,7 @@ export default {
 			justify-content: space-between;
 
 			.box-img {
-				width: 38vw !important;
+				width: 40vw !important;
 				height: 35vh;
 				margin: 0;
 				margin-bottom: calc-rem(20);

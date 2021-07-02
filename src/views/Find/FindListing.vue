@@ -129,7 +129,7 @@ export default {
 @import "src/styles/mixims";
 
 .lostListing {
-	margin: calc-rem(50) calc-rem(30) calc-rem(10) calc-rem(30);
+	margin: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
 
 	&--header {
 		display: flex;
@@ -151,8 +151,8 @@ export default {
 		}
 
 		.box-img {
-			width: 38vw !important;
-			height: 25vh;
+			width: 40vw !important;
+			height: 30vh;
 			margin: 0;
 			margin-bottom: calc-rem(20);
 			//font-size: calc-rem(11);

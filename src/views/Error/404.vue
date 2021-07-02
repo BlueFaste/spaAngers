@@ -31,7 +31,7 @@ export default {
 @import "src/styles/mixims";
 
 .error {
-	padding: calc-rem(70) calc-rem(30) calc-rem(10) calc-rem(30);
+	padding: calc-rem(70) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
 	font-weight: bold;
 	height: 80vh;
 	position: relative;
