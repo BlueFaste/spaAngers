@@ -60,13 +60,13 @@
 						</router-link>
 					</li>
 					<li @click="close()">
-						<router-link to="/animals/lost">
-							perdus
+						<router-link to="/">
+							Infos véto
 						</router-link>
 					</li>
 					<li @click="close()">
-						<router-link to="/animals/find">
-							trouvés
+						<router-link to="/">
+							FAQ
 						</router-link>
 					</li>
 				</ul>
@@ -100,20 +100,28 @@ export default {
 	methods: {
 		toggleSubMenuAnimal() {
 			this.subMenuAnimal = !this.subMenuAnimal;
-			const icon = document.getElementById('icon-animal')
+			const icon = document.getElementById('icon-animal');
 			if(this.subMenuAnimal) {
-				icon.classList.add('nav--list--icon--open')
+				icon.classList.add('nav--list--icon--open');
+				// close the other subMenu if it is open
+				this.subMenuBlog = false;
+				const iconBlog = document.getElementById('icon-blog');
+				iconBlog.classList.remove('nav--list--icon--open');
 			} else {
-				icon.classList.remove('nav--list--icon--open')
+				icon.classList.remove('nav--list--icon--open');
 			}
 		},
 		toggleSubMenuBlog() {
 			this.subMenuBlog = !this.subMenuBlog;
-			const icon = document.getElementById('icon-blog')
+			const icon = document.getElementById('icon-blog');
 			if(this.subMenuBlog) {
-				icon.classList.add('nav--list--icon--open')
+				icon.classList.add('nav--list--icon--open');
+				// close the other subMenu if it is open
+				const iconAnimal = document.getElementById('icon-animal');
+				this.subMenuAnimal = false;
+				iconAnimal.classList.remove('nav--list--icon--open');
 			} else {
-				icon.classList.remove('nav--list--icon--open')
+				icon.classList.remove('nav--list--icon--open');
 			}
 		},
 
@@ -161,26 +169,20 @@ export default {
 	&--list {
 		margin-top: calc-rem(45);
 		padding: 0;
-		font-weight: bold;
 		list-style: none;
 		color: $primary-orange;
 		text-shadow: white 1px 1px, white -1px 1px, white -1px -1px, white 1px -1px;
 		font-size: calc-rem(20);
+		font-weight: bold;
 
 		li {
 			margin: calc-rem(5) 0;
-
 		}
 
 		&--subMenu {
 			font-size: calc-rem(18);
 			list-style: none;
-			text-align: right;
-			width: 40vw;
-
-			&--blog {
-				width: 30vw;
-			}
+			padding-left: calc-rem(20);
 		}
 
 		&--icon {
