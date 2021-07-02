@@ -116,7 +116,7 @@
 			<img class="refuge--contactDetails--design refuge--contactDetails--design-top"
 					:src=" require('@/assets/brown-wave.svg')" alt="">
 			<div class="refuge--contactDetails--container">
-				<h2>Coordonnées</h2>
+				<h2 id="contactDetails">Coordonnées</h2>
 				<h3>Adresse</h3>
 				<p>Promenade de la Baumette</p>
 				<p>49000 - Angers</p>
