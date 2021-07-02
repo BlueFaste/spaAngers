@@ -37,7 +37,7 @@
 					<p>Découvrez notre refuge en cliquant ci-dessous</p>
 				</template>
 			</box>
-			<router-link to="/" class="home--refuge--discover">
+			<router-link to="/refuge" class="home--refuge--discover">
 				<Button text="Découvrir" ticTac="left" color="orange"></Button>
 			</router-link>
 		</div>
