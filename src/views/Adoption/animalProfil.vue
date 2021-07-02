@@ -40,7 +40,7 @@
 
 		<div class="animalProfil--condition">
 			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil-condition--design-top">
+					class="animalProfil--condition--design animalProfil--condition--design-top">
 			<div class="animalProfil--condition--container">
 				<h2>Conditions d'adoption</h2>
 				<p>En adoptant à la SPA, vous acceptez de participer aux frais engendrés par la prise en charge de l’animal dans
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil-condition--design-bottom">
+					class="animalProfil--condition--design animalProfil--condition--design-bottom">
 		</div>
 
 		<div class="animalProfil--other">
@@ -182,7 +182,8 @@ export default {
 
 		&--container {
 			padding: 0 calc-rem($margin-border) 10vh calc-rem($margin-border);
-			//margin-bottom: -12vh;
+			margin-bottom: -12vh;
+			padding-top: 2vh;
 			background: $primary-beige;
 
 			&--animalName {
@@ -207,15 +208,15 @@ export default {
 		&--design {
 			width: 100vw;
 			&-top {
-				background: blue;
-				-webkit-transform: scaleY(-1);
-				transform: scaleY(-1);
+				-webkit-transform: scaleY(-1) scaleX(-1);
+				transform: scaleY(-1) scaleX(-1);
 				margin-bottom: -1px;
 			}
 
 			&-bottom {
 				margin-top: -1px;
 			}
+
 		}
 
 		&--container {
