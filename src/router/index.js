@@ -32,6 +32,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/AdoptionListing.vue')
 	},
 	{
+		path: '/animals/adoption/:id',
+		name: 'animalProfil',
+		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/animalProfil.vue')
+	},
+	{
 		path: '/animals/lost',
 		name: 'LostListing',
 		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostListing.vue')
@@ -61,6 +66,7 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
+	console.log('ee')
 	store.dispatch('updateRouterName', to.name)
 	window.scroll(0, 0)
 	next();

@@ -25,7 +25,7 @@
 
 			<div class="adoption--list--container">
 				<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-						:link="actu.link" :key="key" tictac="left"></box-img>
+						:link="`adoption/${key}`" :key="key" tictac="left"></box-img>
 				<p v-show="animalDisplayList.length == 0">Aucun animal n'est à adopter...</p>
 
 			</div>
