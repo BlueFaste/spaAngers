@@ -1,27 +1,28 @@
 <template>
   <div id="app">
 		<Header></Header>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
+		<Footer></Footer>
   </div>
 </template>
 
 <script>
 
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 export default {
-	name: 'Home',
+	name: 'App',
 	components: {
+		Footer,
 		Header
 	}
 }
 </script>
 <style lang="scss">
 
-@import 'src/styles/variables';
+@import "styles/variables";
+@import "styles/mixims";
+@import "styles/functions";
 #app {
   font-family: $font-family-base !important;
   -webkit-font-smoothing: antialiased;
@@ -32,12 +33,27 @@ export default {
 	h1{
 		font-weight: bold;
 	}
+
+	h2{
+		font-size: calc-rem(20);
+		margin: 0;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $primary-brown;
+	}
+
+	p{
+		font-size: 14px;
+	};
+
+	a{
+		text-decoration: none;
+	}
 }
 
 #nav {
   padding: 30px;
 	a{
-		text-decoration: none;
 		color: $primary-orange;
 	}
 }
