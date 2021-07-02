@@ -13,6 +13,7 @@ export default {
 		text: String,
 		ticTac: String,
 		color: String,
+		textColor: String,
 		icon: Boolean,
 		iconCheck: Boolean,
 	},
@@ -21,6 +22,7 @@ export default {
 			return [{
 				[`button--tictac-${this.ticTac}`]: this.ticTac,
 				[`button--color-${this.color}`]: this.color,
+				[`button--text-color-${this.textColor}`]: this.textColor,
 			}]
 		},
 		iconClasses() {
@@ -56,12 +58,10 @@ export default {
 
 	&--color-brown {
 		background-color: $primary-brown !important;
-		color: $primary-beige !important;
 
 		@include hover {
 			background-color: darken($primary-brown, 10%) !important;
 		}
-
 	}
 
 	&--color-beige {
@@ -70,7 +70,10 @@ export default {
 		@include hover {
 			background-color: darken($primary-beige, 10%) !important;
 		}
+	}
 
+	&--text-color-beige{
+		color: $primary-beige !important;
 	}
 
 

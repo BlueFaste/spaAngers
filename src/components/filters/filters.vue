@@ -4,7 +4,7 @@
 		<box background="beige" tic-tac="left" class="filters--filter" v-show="showFilter">
 			<template v-slot:content>
 				<h3>Filtres</h3>
-				<Button v-for="(filter, key) in filters" :text="filter.name" :key="key" tic-tac="left" color="brown"
+				<Button v-for="(filter, key) in filters" :text="filter.name" :key="key" tic-tac="left" color="brown" text-color="beige"
 						:icon="true" :icon-check="filter.check" @click="filterCheck(key)"></Button>
 			</template>
 		</box>
