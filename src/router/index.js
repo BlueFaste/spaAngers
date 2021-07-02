@@ -12,29 +12,34 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/actuality',
-		name: 'ActualityListing',
+		path: '/refuge',
+		name: 'refuge',
 		component: () => import(/* webpackChunkName: "about" */ '../views/Actuality/ActualityListing.vue'),
 	},
 	{
+		path: '/actuality',
+		name: 'ActualityListing',
+		component: () => import(/* webpackChunkName: "ActualityListing" */ '../views/Actuality/ActualityListing.vue'),
+	},
+	{
 		path: '/actuality/:id',
-		name: 'Actuality',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Actuality/Article.vue')
+		name: 'Article',
+		component: () => import(/* webpackChunkName: "Article" */ '../views/Actuality/Article.vue')
 	},
 	{
 		path: '/animals/adoption',
 		name: 'Adoption',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Adoption.vue')
+		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/AdoptionListing.vue')
 	},
 	{
 		path: '/animals/lost',
 		name: 'LostListing',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Lost/LostListing.vue')
+		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostListing.vue')
 	},
 	{
 		path: '/animals/find',
 		name: 'FindListing',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Find/FindListing.vue')
+		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindListing.vue')
 	},
 
 

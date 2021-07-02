@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import Button from "../components/button/button";
-import BoxImg from "../components/box/boxImg";
-import Filters from "../components/filters/filters";
+import Button from "../../components/button/button";
+import BoxImg from "../../components/box/boxImg";
+import Filters from "../../components/filters/filters";
 
 export default {
 	name: "Adoption",
