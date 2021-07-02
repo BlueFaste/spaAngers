@@ -38,6 +38,8 @@ export default {
 		font-size: calc-rem(20);
 		margin: 0;
 		font-weight: bold;
+		text-transform: uppercase;
+		color: $primary-brown;
 	}
 
 	p{

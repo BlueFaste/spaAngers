@@ -64,6 +64,7 @@ footer {
 				text-transform: uppercase;
 				font-weight: bold;
 				margin-top: calc-rem(30);
+				color: white !important;
 			}
 
 			h3 {

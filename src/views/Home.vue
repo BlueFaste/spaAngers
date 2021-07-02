@@ -235,6 +235,7 @@ export default {
 
 		h2 {
 			font-size: calc-rem(20);
+			text-transform: initial !important;
 		}
 
 		&--discover {
