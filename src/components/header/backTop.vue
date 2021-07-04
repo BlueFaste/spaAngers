@@ -32,6 +32,7 @@ export default {
 	align-items: center;
 	justify-content: center;
 	z-index: 10;
+	cursor: pointer;
 }
 
 </style>
