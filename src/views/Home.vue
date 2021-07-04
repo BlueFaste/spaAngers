@@ -1,7 +1,7 @@
 <template>
-	<div class="home">
-		<div class="home--call-action">
-			<div class="home--call-action--donation">
+	<main class="home">
+		<section class="home--call-action">
+			<article class="home--call-action--donation">
 				<img :src="require('@/assets/dog-orange-circle.webp')" alt="">
 				<p>Comme chaque année, le combat contre l'abandon des animaux continue.
 					Aidez la SPAA Angers.</p>
@@ -12,7 +12,7 @@
 					<Button text="Adopter" ticTac="rigth" color="brown"></Button>
 				</router-link>
 
-			</div>
+			</article>
 			<div class="home--call-action--background ">
 				<img :src="require('@/assets/pawprint.svg')" alt=""
 						class="home--call-action--background-paw home--call-action--background-paw-1">
@@ -29,8 +29,8 @@
 				<img :src="require('@/assets/bubble.svg')" alt=""
 						class="home--call-action--background-bubble home--call-action--background-bubble-3">
 			</div>
-		</div>
-		<div class="home--refuge">
+		</section>
+		<section class="home--refuge">
 			<box background="beige" tic-tac="rigth" size="50">
 				<template v-slot:content>
 					<h2>Le refuge</h2>
@@ -40,32 +40,32 @@
 			<router-link to="/refuge" class="home--refuge--discover">
 				<Button text="Découvrir" ticTac="left" color="orange"></Button>
 			</router-link>
-		</div>
-		<div class="home--actu">
-			<div class="home--actu--header">
+		</section>
+		<section class="home--actu">
+			<header class="home--actu--header">
 				<h2> Les dernières actualités</h2>
 				<router-link to="/actuality" class="home--refuge--discover">
 					<Button text="Tout voir" ticTac="left" color="orange"></Button>
 				</router-link>
-			</div>
+			</header>
 
-			<div class="home--actu--slider">
+			<article class="home--actu--slider">
 				<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 						:link="actu.link" :key="key" tictac="left"></box-img>
-			</div>
-		</div>
+			</article>
+		</section>
 
 		<Newsletter></Newsletter>
 
-		<div class="home--help">
+		<section class="home--help">
 			<h2>Comment nous aider ?</h2>
-			<div class="home--help-container">
+			<article class="home--help-container">
 				<box-img-text v-for="(help, key) in helpList" :key="key" :text="help.text" :link="help.link"
 						:tictac="help.tictac" :btn-text="help.btnText" :btn-tictac="help.btnTictac"
 						:btn-color="help.btnColor"></box-img-text>
-			</div>
-		</div>
-	</div>
+			</article>
+		</section>
+	</main>
 </template>
 
 <script>

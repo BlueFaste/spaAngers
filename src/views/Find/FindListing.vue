@@ -1,17 +1,17 @@
 <template>
-	<div class="lostListing">
-		<div class="lostListing--header">
+	<main class="lostListing">
+		<header class="lostListing--header">
 			<h2>{{ animalsList.length }} Animaux trouvés</h2>
 			<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
-		</div>
-		<div class="lostListing--list">
+		</header>
+		<section class="lostListing--list">
 			<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 					:link="actu.link" :key="key" tictac="left"></box-img>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été trouvé...</p>
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 </template>
 
 <script>

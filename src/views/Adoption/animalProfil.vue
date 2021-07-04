@@ -1,7 +1,7 @@
 <template>
-	<div class="animalProfil">
+	<main class="animalProfil">
 		<div class="animalProfil--img--tictac-rigth"></div>
-		<div class="animalProfil--desc">
+		<section class="animalProfil--desc">
 			<p>
 				<span class="fw-bold">Nom: </span> Titi JR
 			</p>
@@ -23,22 +23,22 @@
 			</div>
 			<p><span class="fw-bold">Description: </span> <br>Très gentil et câlineur. Parle beaucoup, a beaucoup de
 				caractère, très exclusif, serait très bien seul dans une famille.</p>
-		</div>
+		</section>
 
-		<div class="animalProfil--adoption">
+		<section class="animalProfil--adoption">
 			<img :src="require('@/assets/beige-wave.png')" alt=""
 					class="animalProfil--adoption--design animalProfil--adoption--design-top">
-			<div class="animalProfil--adoption--container">
+			<article class="animalProfil--adoption--container">
 				<h2>Je souhaite adopter</h2>
 				<h2 class="animalProfil--adoption--container--animalName">Titi JR :</h2>
 				<div class="animalProfil--adoption--container--button">
 					<Button text="Contact" ticTac="left" color="orange" :icon="true" :icon-rigth="true"></Button>
 					<Button text="Itinéraire" ticTac="left" color="brown" :icon="true" :icon-rigth="true"></Button>
 				</div>
-			</div>
-		</div>
+			</article>
+		</section>
 
-		<div class="animalProfil--condition">
+		<section class="animalProfil--condition">
 			<img :src="require('@/assets/brown-wave.svg')" alt=""
 					class="animalProfil--condition--design animalProfil--condition--design-top">
 			<div class="animalProfil--condition--container">
@@ -79,20 +79,20 @@
 			</div>
 			<img :src="require('@/assets/brown-wave.svg')" alt=""
 					class="animalProfil--condition--design animalProfil--condition--design-bottom">
-		</div>
+		</section>
 
-		<div class="animalProfil--other">
+		<section class="animalProfil--other">
 			<h2> également à l'adoption</h2>
-			<div class="animalProfil--other--container">
+			<article class="animalProfil--other--container">
 				<box-img v-for="(animal, key) in animalsList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
 						:link="animal.link" :key="key" tictac="left"></box-img>
-			</div>
+			</article>
 
-		</div>
+		</section>
 		<router-link to="/animals/adoption">
 			<Button text="Retour à la page d'adoption" ticTac="left" color="orange"></Button>
 		</router-link>
-	</div>
+	</main>
 </template>
 
 <script>

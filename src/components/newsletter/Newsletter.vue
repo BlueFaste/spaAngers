@@ -1,5 +1,5 @@
 <template>
-	<div class="newsletter">
+	<section class="newsletter">
 		<img :src="require('@/assets/brown-wave.svg')" alt=""
 				class="newsletter--design newsletter--design-top">
 		<div class="newsletter--container">
@@ -10,7 +10,7 @@
 		</div>
 		<img :src="require('@/assets/brown-wave.svg')" alt=""
 				class="newsletter--design newsletter--design-down">
-	</div>
+	</section>
 </template>
 
 <script>

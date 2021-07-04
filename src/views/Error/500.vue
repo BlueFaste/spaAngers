@@ -1,11 +1,11 @@
 <template>
-	<div class="error">
-		<div class="error--text">
+	<main class="error">
+		<section class="error--text">
 			<h2>Oups...</h2>
 			<p>Un problème est survenu...</p>
 			<p>Erreur <span class="error--text--chiffre">500</span>...</p>
 			<Button text="Retour à l'accueil" ticTac="rigth" color="orange"></Button>
-		</div>
+		</section>
 
 		<img class="error--img" :src="require('@/assets/goldenRetriever-nav.png')" alt="">
 
@@ -13,7 +13,7 @@
 			<img :src="require('@/assets/pawprint.svg')" alt="" class="error--background-paw error--background-paw-1">
 			<img :src="require('@/assets/pawprint.svg')" alt="" class="error--background-paw error--background-paw-2">
 		</div>
-	</div>
+	</main>
 </template>
 
 <script>
