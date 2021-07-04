@@ -152,7 +152,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 
-		.button {
+		a{
 			align-self: end;
 		}
 	}
