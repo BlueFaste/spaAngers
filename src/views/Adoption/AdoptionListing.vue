@@ -1,6 +1,6 @@
 <template>
-	<div class="adoption">
-		<div class="adoption--alert">
+	<main class="adoption">
+		<section class="adoption--alert">
 			<h2>Adoption responsable</h2>
 			<p>Vous souhaitez adopter un animal à la SPA? Votre décision est mûrement réfléchie? Vous pouvez consulter la
 				liste de nos candidats à l’adoption en identifiant le refuge le plus proche de votre domicile. Repérez le ou les
@@ -15,25 +15,25 @@
 			<p class="fw-bold"> OFFREZ-LEUR LA VIE QU'ILS MÉRITENT</p>
 
 			<img class="adoption--alert--design" :src="require('@/assets/orange-wave.svg')" alt="">
-		</div>
+		</section>
 
-		<div class="adoption--list">
-			<div class="adoption--list--header">
+		<section class="adoption--list">
+			<header class="adoption--list--header">
 				<h2>69 animaux à adopter</h2>
 				<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
-			</div>
+			</header>
 
-			<div class="adoption--list--container">
+			<article class="adoption--list--container">
 				<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 						:link="`adoption/${key}`" :key="key" tictac="left"></box-img>
 				<p v-show="animalDisplayList.length == 0">Aucun animal n'est à adopter...</p>
 
-			</div>
+			</article>
 
 			<Button text="Voir plus" ticTac="left" color="orange"></Button>
-		</div>
+		</section>
 
-	</div>
+	</main>
 </template>
 
 <script>
@@ -160,7 +160,7 @@ export default {
 
 	&--alert {
 
-		padding: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
+		padding: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 		background: $primary-orange;
 		color: white;
 		position: relative;

@@ -1,7 +1,7 @@
 <template>
-	<div class="animalProfil">
+	<main class="animalProfil">
 		<div class="animalProfil--img--tictac-rigth"></div>
-		<div class="animalProfil--desc">
+		<section class="animalProfil--desc">
 			<p>
 				<span class="fw-bold">Nom: </span> Titi JR
 			</p>
@@ -23,25 +23,23 @@
 			</div>
 			<p><span class="fw-bold">Description: </span> <br>Très gentil et câlineur. Parle beaucoup, a beaucoup de
 				caractère, très exclusif, serait très bien seul dans une famille.</p>
-		</div>
+		</section>
 
-		<div class="animalProfil--adoption">
+		<section class="animalProfil--adoption">
 			<img :src="require('@/assets/beige-wave.png')" alt=""
 					class="animalProfil--adoption--design animalProfil--adoption--design-top">
-			<div class="animalProfil--adoption--container">
+			<article class="animalProfil--adoption--container">
 				<h2>Je souhaite adopter</h2>
 				<h2 class="animalProfil--adoption--container--animalName">Titi JR :</h2>
 				<div class="animalProfil--adoption--container--button">
 					<Button text="Contact" ticTac="left" color="orange" :icon="true" :icon-rigth="true"></Button>
 					<Button text="Itinéraire" ticTac="left" color="brown" :icon="true" :icon-rigth="true"></Button>
 				</div>
-			</div>
-		</div>
+			</article>
+		</section>
 
-		<div class="animalProfil--condition">
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil--condition--design-top">
-			<div class="animalProfil--condition--container">
+		<BrownContainer class="animalProfil--condition">
+			<template v-slot:content>
 				<h2>Conditions d'adoption</h2>
 				<p>En adoptant à la SPA, vous acceptez de participer aux frais engendrés par la prise en charge de l’animal dans
 					le cadre d’une adoption responsable dont les soins, l’hébergement, la nourriture, la vaccination, la
@@ -52,56 +50,56 @@
 					Par votre participation financière, vous continuerez à faire grandir notre mouvement de solidarité envers les
 					animaux abandonnés et maltraités.</p>
 				<div class="animalProfil--condition--container--info">
-					<div class="animalProfil--condition--container--frais">
+					<div class="animalProfil--condition--container--info--frais">
 						<h3>Frais d'adoption :</h3>
 						<img :src="require('@/assets/cat.svg')" alt="">
 						<p>110€</p>
 					</div>
-					<div class="animalProfil--condition--container--divider"></div>
-					<div class="animalProfil--condition--container--bring">
+					<div class="animalProfil--condition--container--info--divider"></div>
+					<div class="animalProfil--condition--container--info--bring">
 						<h3> N'oubliez pas d'apporter :</h3>
-						<ul class="animalProfil--condition--container--bring--list">
-							<li class="animalProfil--condition--container--bring--list--item">
+						<ul class="animalProfil--condition--container--info--bring--list">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Pièce d'identité</p>
 							</li>
-							<li class="animalProfil--condition--container--bring--list--item">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Justification de domicile</p>
 							</li>
-							<li class="animalProfil--condition--container--bring--list--item">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Justificatif de revenus</p>
 							</li>
 						</ul>
 					</div>
 				</div>
-			</div>
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil--condition--design-bottom">
-		</div>
+			</template>
 
-		<div class="animalProfil--other">
+		</BrownContainer>
+
+		<section class="animalProfil--other">
 			<h2> également à l'adoption</h2>
-			<div class="animalProfil--other--container">
+			<article class="animalProfil--other--container">
 				<box-img v-for="(animal, key) in animalsList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
 						:link="animal.link" :key="key" tictac="left"></box-img>
-			</div>
+			</article>
 
-		</div>
+		</section>
 		<router-link to="/animals/adoption">
 			<Button text="Retour à la page d'adoption" ticTac="left" color="orange"></Button>
 		</router-link>
-	</div>
+	</main>
 </template>
 
 <script>
 import Button from "../../components/button/button";
 import BoxImg from "../../components/box/boxImg";
+import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "animalProfil",
-	components: {BoxImg, Button},
+	components: {BrownContainer, BoxImg, Button},
 	data() {
 		return {
 			animalsList: [
@@ -142,7 +140,7 @@ export default {
 @import "src/styles/mixims";
 
 .animalProfil {
-	margin: calc-rem(50) 0 calc-rem(10) 0;
+	margin: calc-rem($margin-top) 0 calc-rem($margin-bottom) 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -205,35 +203,14 @@ export default {
 	}
 
 	&--condition {
-		&--design {
-			width: 100vw;
-			&-top {
-				-webkit-transform: scaleY(-1) scaleX(-1);
-				transform: scaleY(-1) scaleX(-1);
-				margin-bottom: -1px;
-			}
-
-			&-bottom {
-				margin-top: -1px;
-			}
-
+		h2 {
+			color: white !important;
 		}
 
-		&--container {
-			background: $primary-brown;
-			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
-			color: white;
-			padding: calc-rem(20) calc-rem($margin-border);
-
-			&--info {
-				display: flex;
-				justify-content: space-between;
-				margin-top: calc-rem(20);
-			}
-
-			h2 {
-				color: white !important;
-			}
+		.animalProfil--condition--container--info {
+			display: flex;
+			justify-content: space-between;
+			margin-top: calc-rem(20);
 
 			h3 {
 				font-size: calc-rem(12) !important;
@@ -282,7 +259,9 @@ export default {
 					}
 				}
 			}
+
 		}
+
 	}
 
 	&--other {

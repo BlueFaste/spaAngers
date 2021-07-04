@@ -1,19 +1,19 @@
 <template>
-	<div class="actuality">
-		<div class="actuality--header">
+	<main class="actuality">
+		<header class="actuality--header">
 			<h2>Les dernières actualités</h2>
 			<box background="beige" tic-tac="rigth">
 				<template v-slot:content>
 					49 articles
 				</template>
 			</box>
-		</div>
+		</header>
 		<div class="actuality--container">
 			<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 					:link="`/actuality/${key}`" :key="key" tictac="left"></box-img>
 		</div>
 		<Button text="Voir plus" ticTac="left" color="orange"></Button>
-	</div>
+	</main>
 </template>
 
 <script>
@@ -119,8 +119,7 @@ export default {
 @import "src/styles/mixims";
 
 .actuality {
-	margin: 0 calc-rem($margin-border);
-	margin-top: calc-rem(70);
+	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 	display: flex;
 	flex-direction: column;
 	align-items: center;

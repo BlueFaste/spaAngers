@@ -1,14 +1,14 @@
 <template>
-	<div class="refuge">
-		<div class="refuge--img">
+	<main class="refuge">
+		<header class="refuge--img">
 			<box background="beige" tic-tac="rigth" size="50">
 				<template v-slot:content>
 					<h2>Le refuge</h2>
 				</template>
 			</box>
-		</div>
+		</header>
 
-		<div class="refuge--summary">
+		<section class="refuge--summary">
 			<h2> Sommaire</h2>
 			<div class="refuge--summary--button">
 				<anchor-router-link v-for="(button, key) in summaryList"
@@ -19,9 +19,9 @@
 							:icon="true" :icon-rigth="true"></Button>
 				</anchor-router-link>
 			</div>
-		</div>
-		<div class="refuge--role">
-			<div class="refuge--role--white">
+		</section>
+		<section class="refuge--role">
+			<article class="refuge--role--white">
 				<h2 id="role">Notre rôle</h2>
 
 				<p>Recueillir les animaux trouvés errant sur la voie publique</p>
@@ -31,11 +31,9 @@
 				<p>Et si besoin est, les poursuivre en justice. Dans ce cas, il faut constituer un dossier complet avec preuves,
 					témoignages, photographies etc.... Ce que nous réalisons régulièrement avec l'aide d'une de nos
 					administratrices, avocate au barreau d'ANGERS.</p>
-			</div>
-			<div class="refuge--role--brown">
-				<img class="refuge--role--brown--design refuge--role--brown--design-top"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-				<div class="refuge--role--brown--container">
+			</article>
+			<BrownContainer class="refuge--role--brown">
+				<template v-slot:content>
 					<h3>La S.P.A.A. de Maine-et-Loire joue un rôle fondamental dans la vie de nos cités dont elle est un
 						authentique partenaire</h3>
 					<p>D'une part, elle permet aux responsables des collectivités locales ainsi qu'ils en ont le devoir d'assumer
@@ -58,14 +56,12 @@
 						Autonome de Maine-et-Loire, authentiquement intégrée à la vie sociale de notre département. Les animaux sont
 						des êtres vivants à respecter comme tels, susceptibles de souffrances et faisant partie de notre
 						environnement à protéger.</p>
-				</div>
-				<img class="refuge--role--brown--design refuge--role--brown--design-down"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-			</div>
-		</div>
+				</template>
+			</BrownContainer>
+		</section>
 
-		<div class="refuge--resources">
-			<div class="refuge--resources--white">
+		<section class="refuge--resources">
+			<article class="refuge--resources--white">
 				<h2 id="resources">Nos moyens</h2>
 				<p>Le refuge peut accueillir 158 chiens dont 144 en boxes individuels et 14 en 4 boxes collectifs ainsi que 72
 					chats en cases individuelles. Ces structures sont réparties (bâtiments séparés) en fourrière, refuge et lieux
@@ -80,11 +76,9 @@
 					qui nous vaut de bénéficier d'un "Label de Qualification" délivré par la Confédération Nationale Défense de
 					l'animal.
 				</p>
-			</div>
-			<div class="refuge--resources--brown">
-				<img class="refuge--resources--brown--design refuge--role--brown--design-top"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-				<div class="refuge--resources--brown--container">
+			</article>
+			<BrownContainer class="refuge--resources--brown">
+				<template v-slot:content>
 					<h3>Personnel salarié de la S.P.A.A.</h3>
 					<ul>
 						<li>- 4 agents à temps complet en C.D.I. (trois d'entre eux sont titulaires du Certificat de Capacité
@@ -99,23 +93,19 @@
 						</li>
 						<li>- 1 vétérinaire salariée qui intervient le lundi et le vendredi après midi, le jeudi toute la</li>
 					</ul>
-				</div>
-				<img class="refuge--resources--brown--design refuge--role--brown--design-down"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-			</div>
-			<div class="refuge--resources--white">
+				</template>
+			</BrownContainer>
+			<article class="refuge--resources--white">
 				<h3>Trésorerie</h3>
 				<p>Elle est alimentée par les cotisations de nos adhérents, des dons et legs, par les règlements des frais de
 					gardiennage et d'adoption de nos chiens et chats (voir nos tarifs dans la rubrique "Adoptez-nous"), par les
 					versements des redevances des communes au titre de la Convention fourrière (0.021€/habitant/an + T.V.A. à 20%)
 					ainsi que par les ventes de nos diverses fournitures (laisses, colliers, médailles, tasses....) qui sont
 					présentées à l'accueil de notre refuge.</p>
-			</div>
-		</div>
-		<div class="refuge--contactDetails">
-			<img class="refuge--contactDetails--design refuge--contactDetails--design-top"
-					:src=" require('@/assets/brown-wave.svg')" alt="">
-			<div class="refuge--contactDetails--container">
+			</article>
+		</section>
+		<BrownContainer class="refuge--contactDetails">
+			<template v-slot:content>
 				<h2 id="contactDetails">Coordonnées</h2>
 				<h3>Adresse</h3>
 				<p>Promenade de la Baumette</p>
@@ -124,12 +114,9 @@
 				<p>Mail : <a href="mailto: sitespaaangers@orange.fr">sitespaaangers@orange.fr</a></p>
 				<p>Tel : <a href="tel:+33241663223">02 41 66 32 23</a></p>
 				<p>Fax : 02 41 47 37 94</p>
-			</div>
-
-			<img class="refuge--contactDetails--design refuge--contactDetails--design-down"
-					:src=" require('@/assets/brown-wave.svg')" alt="">
-		</div>
-		<div class="refuge--hours">
+			</template>
+		</BrownContainer>
+		<section class="refuge--hours">
 			<h2 id="hours">Horaires</h2>
 			<h3>Ouverture du refuge</h3>
 			<p>Les mardis mercredis et samedis après-midi sauf jours fériés (1er et 8 mai 2021 fermés) de 14h à 17h00.</p>
@@ -144,19 +131,15 @@
 				<li>3 - La désinfection des mains à l’entrée sera obligatoire</li>
 				<li>4 - La distanciation physique de 1 m minimum devra être respectée entre chaque personne.</li>
 			</ul>
-		</div>
+		</section>
 
-		<div class="refuge--noRespect">
-			<img class="refuge--noRespect--design refuge--noRespect--design-top" :src=" require('@/assets/brown-wave.svg')"
-					alt="">
-			<div class="refuge--noRespect--container">
+		<BrownContainer class="refuge--noRespect">
+			<template v-slot:content>
 				<h2>LE NON RESPECT DE CES CONSIGNES ENTRAINERA UN REFUS D’ACCES DANS L’ENCEINTE DU REFUGE </h2>
-			</div>
-			<img class="refuge--noRespect--design refuge--noRespect--design-down" :src=" require('@/assets/brown-wave.svg')"
-					alt="">
-		</div>
+			</template>
+		</BrownContainer>
 
-		<div class="refuge--accessPlan">
+		<section class="refuge--accessPlan">
 			<h2 id="accessPlan">Plan d'accès</h2>
 			<div class="mapouter">
 				<div class="gmap_canvas">
@@ -165,8 +148,8 @@
 							frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 				</div>
 			</div>
-		</div>
-	</div>
+		</section>
+	</main>
 
 </template>
 
@@ -174,10 +157,11 @@
 import Box from "../../components/box/box";
 import Button from "../../components/button/button";
 import AnchorRouterLink from 'vue-anchor-router-link';
+import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "Refuge",
-	components: {Button, Box, AnchorRouterLink},
+	components: {BrownContainer, Button, Box, AnchorRouterLink},
 	data() {
 		return {
 			summaryList: [
@@ -238,7 +222,7 @@ export default {
 		background-size: cover;
 		width: 100vw;
 		height: 70vh;
-		padding: calc-rem(70) calc-rem(10);
+		padding: calc-rem($margin-top+20) calc-rem($margin-border);
 		margin-top: calc-rem(-30);
 		display: flex;
 		flex-direction: column;
@@ -280,26 +264,6 @@ export default {
 
 	&--role--brown, &--resources--brown, &--contactDetails, &--noRespect {
 		overflow-x: hidden;
-		&--design {
-			width: 101vw;
-			margin-left: -2px;
-			&-top {
-				transform: rotate(180deg);
-				margin-bottom: -1px;
-			}
-
-			&-down{
-				margin-top: -1px;
-			}
-		}
-
-		&--container {
-			background: $primary-brown;
-			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
-			color: white;
-			padding: calc-rem(20) calc-rem($margin-border);
-		}
-
 		h2, h3 {
 			color: white !important;
 		}
@@ -308,18 +272,6 @@ export default {
 	&--resources {
 		&--white {
 			margin: 0 calc-rem($margin-border);
-		}
-
-		&--brown {
-			&--container {
-				ul {
-					list-style: '- ';
-
-					li {
-						margin-bottom: calc-rem(10);
-					}
-				}
-			}
 		}
 	}
 

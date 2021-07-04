@@ -1,8 +1,8 @@
 <template>
-	<div class="article">
+	<main class="article">
 		<h2 class="article--title">Identifier son animal</h2>
 		<div class="article--img--tictac-rigth"></div>
-		<div class="article--text">
+		<section class="article--text">
 			<p class="article--text-date">Le jeudi 01 juillet 2021</p>
 			<div class="fw-bold">
 				<p>IDENTIFIER SON ANIMAL : SIMPLE, BASIQUE. Vraiment, l’identification n’est pas une énigme.</p>
@@ -62,22 +62,22 @@
 				Un passeport européen vous sera également demandé pour voyager en Europe comprenant le numéro d'identification
 				par puce électronique !
 			</p>
-		</div>
+		</section>
 		<Newsletter></Newsletter>
 
-		<div class="article--other">
+		<section class="article--other">
 			<h2> D'autres articles</h2>
 			<div class="article--other--container">
 				<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 						:link="actu.link" :key="key" tictac="left"></box-img>
 			</div>
 
-		</div>
+		</section>
 		<router-link to="/actuality">
 			<Button text="Retour aux actualités" ticTac="left" color="orange"></Button>
 
 		</router-link>
-	</div>
+	</main>
 </template>
 
 <script>
@@ -126,7 +126,7 @@ export default {
 
 .article {
 	color: $primary-brown;
-	margin: calc-rem(50) 0 calc-rem(10) 0;
+	margin: calc-rem($margin-top) 0 calc-rem($margin-bottom) 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

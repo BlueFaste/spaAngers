@@ -1,16 +1,16 @@
 <template>
-	<div class="lostListing">
-		<div class="lostListing--header">
+	<main class="lostListing">
+		<header class="lostListing--header">
 			<h2> 3 Animaux perdus</h2>
 			<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
-		</div>
-		<div class="lostListing--list">
+		</header>
+		<section class="lostListing--list">
 			<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 					:link="actu.link" :key="key" tictac="left"></box-img>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été perdu...</p>
-		</div>
+		</section>
 
-		<div class="lostListing--text">
+		<section class="lostListing--text">
 			<p class="fw-bold">Vous aussi vous avez perdu votre animal ?</p>
 
 			<p>La SPAA Angers vous permet de poster une annonce sur notre site web et nous ferons tout pour que vous
@@ -18,11 +18,13 @@
 
 			<p>Postez votre annonce en cliquant sur le bouton ci-dessous.</p>
 
-			<Button text="Poster mon annonce" ticTac="left" color="orange"></Button>
+			<router-link to="/">
+				<Button text="Poster mon annonce" ticTac="left" color="orange"></Button>
+			</router-link>
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 </template>
 
 <script>
@@ -116,7 +118,7 @@ export default {
 @import "src/styles/mixims";
 
 .lostListing {
-	margin: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
+	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 
 	&--header {
 		display: flex;
@@ -150,7 +152,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 
-		.button {
+		a{
 			align-self: end;
 		}
 	}
