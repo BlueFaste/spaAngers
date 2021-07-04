@@ -126,7 +126,7 @@ export default {
 
 .article {
 	color: $primary-brown;
-	margin: calc-rem(50) 0 calc-rem(10) 0;
+	margin: calc-rem($margin-top) 0 calc-rem($margin-bottom) 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

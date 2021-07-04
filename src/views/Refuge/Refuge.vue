@@ -222,7 +222,7 @@ export default {
 		background-size: cover;
 		width: 100vw;
 		height: 70vh;
-		padding: calc-rem(70) calc-rem(10);
+		padding: calc-rem($margin-top+20) calc-rem($margin-border);
 		margin-top: calc-rem(-30);
 		display: flex;
 		flex-direction: column;

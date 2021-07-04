@@ -118,7 +118,7 @@ export default {
 @import "src/styles/mixims";
 
 .lostListing {
-	margin: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
+	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 
 	&--header {
 		display: flex;

@@ -160,7 +160,7 @@ export default {
 
 	&--alert {
 
-		padding: calc-rem(50) calc-rem($margin-border) calc-rem(10) calc-rem($margin-border);
+		padding: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 		background: $primary-orange;
 		color: white;
 		position: relative;

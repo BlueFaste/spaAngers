@@ -119,8 +119,7 @@ export default {
 @import "src/styles/mixims";
 
 .actuality {
-	margin: 0 calc-rem($margin-border);
-	margin-top: calc-rem(70);
+	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
