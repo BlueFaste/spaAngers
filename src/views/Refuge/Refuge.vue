@@ -32,10 +32,8 @@
 					témoignages, photographies etc.... Ce que nous réalisons régulièrement avec l'aide d'une de nos
 					administratrices, avocate au barreau d'ANGERS.</p>
 			</article>
-			<article class="refuge--role--brown">
-				<img class="refuge--role--brown--design refuge--role--brown--design-top"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-				<div class="refuge--role--brown--container">
+			<BrownContainer class="refuge--role--brown">
+				<template v-slot:content>
 					<h3>La S.P.A.A. de Maine-et-Loire joue un rôle fondamental dans la vie de nos cités dont elle est un
 						authentique partenaire</h3>
 					<p>D'une part, elle permet aux responsables des collectivités locales ainsi qu'ils en ont le devoir d'assumer
@@ -58,10 +56,8 @@
 						Autonome de Maine-et-Loire, authentiquement intégrée à la vie sociale de notre département. Les animaux sont
 						des êtres vivants à respecter comme tels, susceptibles de souffrances et faisant partie de notre
 						environnement à protéger.</p>
-				</div>
-				<img class="refuge--role--brown--design refuge--role--brown--design-down"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-			</article>
+				</template>
+			</BrownContainer>
 		</section>
 
 		<section class="refuge--resources">
@@ -81,10 +77,8 @@
 					l'animal.
 				</p>
 			</article>
-			<article class="refuge--resources--brown">
-				<img class="refuge--resources--brown--design refuge--role--brown--design-top"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-				<div class="refuge--resources--brown--container">
+			<BrownContainer class="refuge--resources--brown">
+				<template v-slot:content>
 					<h3>Personnel salarié de la S.P.A.A.</h3>
 					<ul>
 						<li>- 4 agents à temps complet en C.D.I. (trois d'entre eux sont titulaires du Certificat de Capacité
@@ -99,10 +93,8 @@
 						</li>
 						<li>- 1 vétérinaire salariée qui intervient le lundi et le vendredi après midi, le jeudi toute la</li>
 					</ul>
-				</div>
-				<img class="refuge--resources--brown--design refuge--role--brown--design-down"
-						:src=" require('@/assets/brown-wave.svg')" alt="">
-			</article>
+				</template>
+			</BrownContainer>
 			<article class="refuge--resources--white">
 				<h3>Trésorerie</h3>
 				<p>Elle est alimentée par les cotisations de nos adhérents, des dons et legs, par les règlements des frais de
@@ -112,10 +104,8 @@
 					présentées à l'accueil de notre refuge.</p>
 			</article>
 		</section>
-		<section class="refuge--contactDetails">
-			<img class="refuge--contactDetails--design refuge--contactDetails--design-top"
-					:src=" require('@/assets/brown-wave.svg')" alt="">
-			<article class="refuge--contactDetails--container">
+		<BrownContainer class="refuge--contactDetails">
+			<template v-slot:content>
 				<h2 id="contactDetails">Coordonnées</h2>
 				<h3>Adresse</h3>
 				<p>Promenade de la Baumette</p>
@@ -124,11 +114,8 @@
 				<p>Mail : <a href="mailto: sitespaaangers@orange.fr">sitespaaangers@orange.fr</a></p>
 				<p>Tel : <a href="tel:+33241663223">02 41 66 32 23</a></p>
 				<p>Fax : 02 41 47 37 94</p>
-			</article>
-
-			<img class="refuge--contactDetails--design refuge--contactDetails--design-down"
-					:src=" require('@/assets/brown-wave.svg')" alt="">
-		</section>
+			</template>
+		</BrownContainer>
 		<section class="refuge--hours">
 			<h2 id="hours">Horaires</h2>
 			<h3>Ouverture du refuge</h3>
@@ -146,15 +133,11 @@
 			</ul>
 		</section>
 
-		<section class="refuge--noRespect">
-			<img class="refuge--noRespect--design refuge--noRespect--design-top" :src=" require('@/assets/brown-wave.svg')"
-					alt="">
-			<div class="refuge--noRespect--container">
+		<BrownContainer class="refuge--noRespect">
+			<template v-slot:content>
 				<h2>LE NON RESPECT DE CES CONSIGNES ENTRAINERA UN REFUS D’ACCES DANS L’ENCEINTE DU REFUGE </h2>
-			</div>
-			<img class="refuge--noRespect--design refuge--noRespect--design-down" :src=" require('@/assets/brown-wave.svg')"
-					alt="">
-		</section>
+			</template>
+		</BrownContainer>
 
 		<section class="refuge--accessPlan">
 			<h2 id="accessPlan">Plan d'accès</h2>
@@ -174,10 +157,11 @@
 import Box from "../../components/box/box";
 import Button from "../../components/button/button";
 import AnchorRouterLink from 'vue-anchor-router-link';
+import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "Refuge",
-	components: {Button, Box, AnchorRouterLink},
+	components: {BrownContainer, Button, Box, AnchorRouterLink},
 	data() {
 		return {
 			summaryList: [
@@ -280,26 +264,6 @@ export default {
 
 	&--role--brown, &--resources--brown, &--contactDetails, &--noRespect {
 		overflow-x: hidden;
-		&--design {
-			width: 101vw;
-			margin-left: -2px;
-			&-top {
-				transform: rotate(180deg);
-				margin-bottom: -1px;
-			}
-
-			&-down{
-				margin-top: -1px;
-			}
-		}
-
-		&--container {
-			background: $primary-brown;
-			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
-			color: white;
-			padding: calc-rem(20) calc-rem($margin-border);
-		}
-
 		h2, h3 {
 			color: white !important;
 		}
@@ -308,18 +272,6 @@ export default {
 	&--resources {
 		&--white {
 			margin: 0 calc-rem($margin-border);
-		}
-
-		&--brown {
-			&--container {
-				ul {
-					list-style: '- ';
-
-					li {
-						margin-bottom: calc-rem(10);
-					}
-				}
-			}
 		}
 	}
 
