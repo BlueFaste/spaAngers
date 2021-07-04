@@ -13,9 +13,15 @@ const routes = [
 	},
 	{
 		path: '/refuge',
-		name: 'refuge',
+		name: 'Refuge',
 		component: () => import(/* webpackChunkName: "about" */ '../views/Refuge/Refuge.vue'),
 	},
+	{
+		path: '/volunteer',
+		name: 'Volunteer',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Volunteer/BecomeVolunteer.vue'),
+	},
+
 	{
 		path: '/actuality',
 		name: 'ActualityListing',
