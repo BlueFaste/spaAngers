@@ -38,10 +38,8 @@
 			</article>
 		</section>
 
-		<section class="animalProfil--condition">
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil--condition--design-top">
-			<div class="animalProfil--condition--container">
+		<BrownContainer class="animalProfil--condition">
+			<template v-slot:content>
 				<h2>Conditions d'adoption</h2>
 				<p>En adoptant à la SPA, vous acceptez de participer aux frais engendrés par la prise en charge de l’animal dans
 					le cadre d’une adoption responsable dont les soins, l’hébergement, la nourriture, la vaccination, la
@@ -52,34 +50,33 @@
 					Par votre participation financière, vous continuerez à faire grandir notre mouvement de solidarité envers les
 					animaux abandonnés et maltraités.</p>
 				<div class="animalProfil--condition--container--info">
-					<div class="animalProfil--condition--container--frais">
+					<div class="animalProfil--condition--container--info--frais">
 						<h3>Frais d'adoption :</h3>
 						<img :src="require('@/assets/cat.svg')" alt="">
 						<p>110€</p>
 					</div>
-					<div class="animalProfil--condition--container--divider"></div>
-					<div class="animalProfil--condition--container--bring">
+					<div class="animalProfil--condition--container--info--divider"></div>
+					<div class="animalProfil--condition--container--info--bring">
 						<h3> N'oubliez pas d'apporter :</h3>
-						<ul class="animalProfil--condition--container--bring--list">
-							<li class="animalProfil--condition--container--bring--list--item">
+						<ul class="animalProfil--condition--container--info--bring--list">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Pièce d'identité</p>
 							</li>
-							<li class="animalProfil--condition--container--bring--list--item">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Justification de domicile</p>
 							</li>
-							<li class="animalProfil--condition--container--bring--list--item">
+							<li class="animalProfil--condition--container--info--bring--list--item">
 								<img :src="require('@/assets/little-paw-white.svg')" alt="">
 								<p>Justificatif de revenus</p>
 							</li>
 						</ul>
 					</div>
 				</div>
-			</div>
-			<img :src="require('@/assets/brown-wave.svg')" alt=""
-					class="animalProfil--condition--design animalProfil--condition--design-bottom">
-		</section>
+			</template>
+
+		</BrownContainer>
 
 		<section class="animalProfil--other">
 			<h2> également à l'adoption</h2>
@@ -98,10 +95,11 @@
 <script>
 import Button from "../../components/button/button";
 import BoxImg from "../../components/box/boxImg";
+import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "animalProfil",
-	components: {BoxImg, Button},
+	components: {BrownContainer, BoxImg, Button},
 	data() {
 		return {
 			animalsList: [
@@ -205,35 +203,14 @@ export default {
 	}
 
 	&--condition {
-		&--design {
-			width: 100vw;
-			&-top {
-				-webkit-transform: scaleY(-1) scaleX(-1);
-				transform: scaleY(-1) scaleX(-1);
-				margin-bottom: -1px;
-			}
-
-			&-bottom {
-				margin-top: -1px;
-			}
-
+		h2 {
+			color: white !important;
 		}
 
-		&--container {
-			background: $primary-brown;
-			box-shadow: 0 0 2rem 2rem darken($primary-brown, 7%) inset;
-			color: white;
-			padding: calc-rem(20) calc-rem($margin-border);
-
-			&--info {
-				display: flex;
-				justify-content: space-between;
-				margin-top: calc-rem(20);
-			}
-
-			h2 {
-				color: white !important;
-			}
+		.animalProfil--condition--container--info {
+			display: flex;
+			justify-content: space-between;
+			margin-top: calc-rem(20);
 
 			h3 {
 				font-size: calc-rem(12) !important;
@@ -282,7 +259,9 @@ export default {
 					}
 				}
 			}
+
 		}
+
 	}
 
 	&--other {
