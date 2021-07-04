@@ -30,10 +30,10 @@ export default {
 @import "src/styles/mixims";
 
 .newsletter {
-		h2 {
-			text-transform: uppercase;
-			color: white !important;
-		}
+	h2 {
+		text-transform: uppercase;
+		color: white !important;
+	}
 }
 
 </style>
