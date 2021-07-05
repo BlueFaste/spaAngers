@@ -6,7 +6,7 @@
 		</header>
 		<section class="lostListing--list">
 			<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-					:link="actu.link" :key="key" tictac="left"></box-img>
+					:link="`lost/${key}`" :key="key" tictac="left"></box-img>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été perdu...</p>
 		</section>
 
