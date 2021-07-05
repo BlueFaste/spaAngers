@@ -57,6 +57,11 @@ const routes = [
 		name: 'FindListing',
 		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindListing.vue')
 	},
+	{
+		path: '/animals/find/:id',
+		name: 'FindProfil',
+		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindProfil.vue')
+	},
 
 
 	{
