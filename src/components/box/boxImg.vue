@@ -1,6 +1,9 @@
 <template>
-	<router-link :to="link" class="box-img" :class="rootClasses()">
-		<div class="box-img--container">
+	<router-link :to="link" class="box-img"  :class="rootClasses()">
+<!--	<router-link :to="link" class="box-img" :style="{backgroundImage: img}" :class="rootClasses()">-->
+<!--		img:{{img}}-->
+<!--		image:{{image}}-->
+		<div class="box-img--container"  id="test">
 			<Button :text="btnText" :ticTac="btnTictac" :color="btnColor"></Button>
 		</div>
 	</router-link>
@@ -8,6 +11,7 @@
 
 <script>
 import Button from "../button/button";
+// import  "@/assets";
 
 export default {
 	name: "boxImg",
@@ -20,8 +24,18 @@ export default {
 		btnColor: String,
 		image: String,
 	},
+	data(){
+		return{
+			img: '',
+		}
+	},
 	created() {
+		let tes = `../../assets/${this.image}`
+		this.img = `url("${require(tes)}")`;
+		console.log('iii',this.img)
+
 		console.log(this.tictac)
+
 	},
 	methods: {
 		rootClasses() {
@@ -42,7 +56,7 @@ export default {
 	@include button-tictac;
 
 	background: no-repeat center center;
-	background-image: url("../../assets/edgar-kitten.jpg");
+	background-image: url("../../assets/edgar-kitten.jpg") !important;
 	background-size: cover;
 	width: 70vw;
 	height: 40vh;
