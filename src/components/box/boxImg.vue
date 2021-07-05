@@ -3,8 +3,8 @@
 <!--	<router-link :to="link" class="box-img" :style="{backgroundImage: img}" :class="rootClasses()">-->
 <!--		img:{{img}}-->
 <!--		image:{{image}}-->
-		<div class="box-img--container"  id="test">
-			<Button :text="btnText" :ticTac="btnTictac" :color="btnColor"></Button>
+		<div class="box-img--container"  id="test" >
+			<Button :text="btnText" :ticTac="btnTictac" :color="btnColor" v-if="btnText"></Button>
 		</div>
 	</router-link>
 </template>
@@ -62,7 +62,7 @@ export default {
 	height: 40vh;
 	display: flex;
 	justify-content: center;
-	margin: 0 calc-rem(20);
+	margin: calc-rem(5) !important;
 
 	&--container {
 		display: flex;
