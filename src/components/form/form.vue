@@ -1,15 +1,22 @@
 <template>
 	<form class="form form--tictac-left">
-		<input type="email" placeholder="Votre adresse e-mail"
+		<input :type="type" :placeholder="placeholder"
 				class="form--input form--input-email">
-		<input type="submit" class="form--input form--input-submit"
-				value=">" @click.prevent="$emit('submit')">
+		<input v-if="submitText" type="submit" class="form--input form--input-submit"
+				:value="submitText" @click.prevent="$emit('submit')">
+		<span v-if="textAfter">{{textAfter}}</span>
 	</form>
 </template>
 
 <script>
 export default {
-	name: "form"
+	name: "form",
+	props:{
+		type: String,
+		placeholder: String,
+		submitText: String,
+		textAfter: String,
+	}
 }
 </script>
 
@@ -31,7 +38,7 @@ export default {
 		background: white;
 
 		&-email {
-			width: 72vw;
+			width: 100%;
 			border-radius: 20px;
 		}
 
