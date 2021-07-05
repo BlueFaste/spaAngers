@@ -46,7 +46,7 @@
 				</router-link>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/abandon">
 					Abandons
 				</router-link>
 			</li>
