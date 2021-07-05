@@ -26,6 +26,11 @@ const routes = [
 		name: 'Abandon',
 		component: () => import(/* webpackChunkName: "about" */ '../views/Abandon/Abandon.vue'),
 	},
+	{
+		path: '/fights',
+		name: 'Fights',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Fights/Fights.vue'),
+	},
 
 	{
 		path: '/actuality',

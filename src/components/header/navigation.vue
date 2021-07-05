@@ -15,7 +15,7 @@
 				</router-link>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/fights">
 					Nos combats
 				</router-link>
 			</li>
