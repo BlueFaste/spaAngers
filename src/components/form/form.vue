@@ -1,7 +1,10 @@
 <template>
 	<form class="form form--tictac-left">
-		<input :type="type" :placeholder="placeholder"
+			<textarea :placeholder="placeholder" v-if="type=='textarea'" rows="6">
+		</textarea>
+		<input v-else :type="type" :placeholder="placeholder"
 				class="form--input form--input-email">
+
 		<input v-if="submitText" type="submit" class="form--input form--input-submit"
 				:value="submitText" @click.prevent="$emit('submit')">
 		<span v-if="textAfter">{{textAfter}}</span>
@@ -32,7 +35,7 @@ export default {
 		padding: calc-rem(10);
 	}
 
-	&--input {
+	&--input, textarea {
 
 		border: none;
 		background: white;
