@@ -2,7 +2,7 @@
 	<nav class="nav">
 		<header class="nav--header">
 			<router-link to="/" class="nav--header-logo">
-				<img src="https://www.la-spa.fr/sites/all/themes/bluemasters/logo.svg" alt="">
+				<img :src="require('@/assets/logo-spaa.svg')" alt="">
 			</router-link>
 			<div @click="close()">
 				<img :src="require('@/assets/close-burger-menu.svg')" alt="">

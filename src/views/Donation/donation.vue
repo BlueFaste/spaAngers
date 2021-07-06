@@ -1,7 +1,7 @@
 <template>
 	<section class="donation">
 		<header>
-			<img :src="require('@/assets/logo-spa.svg')" alt="">
+			<img :src="require('@/assets/logo-spaa-couleur.svg')" alt="">
 			<h1>Votre don sauve des animaux</h1>
 		</header>
 		<article class="donation--don">
