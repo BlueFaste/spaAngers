@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
 		<router-link to="/" class="header--logo">
-			<img src="https://www.la-spa.fr/sites/all/themes/bluemasters/logo.svg" alt="">
+			<img :src="require('@/assets/logo-spaa.svg')" alt="">
 		</router-link>
 		<div class="header--burger">
 			<img :src="require('@/assets/burger-menu.svg')" alt="" @click="toggleNav">

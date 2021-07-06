@@ -21,6 +21,31 @@ const routes = [
 		name: 'Volunteer',
 		component: () => import(/* webpackChunkName: "about" */ '../views/Volunteer/BecomeVolunteer.vue'),
 	},
+	{
+		path: '/abandon',
+		name: 'Abandon',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Abandon/Abandon.vue'),
+	},
+	{
+		path: '/donation',
+		name: 'Donation',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Donation/donation.vue'),
+	},
+	{
+		path: '/fights',
+		name: 'Fights',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Fights/Fights.vue'),
+	},
+	{
+		path: '/faq',
+		name: 'FAQ',
+		component: () => import(/* webpackChunkName: "about" */ '../views/FAQ/FAQ.vue'),
+	},
+	{
+		path: '/contact',
+		name: 'Contact',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Contact/Contact.vue'),
+	},
 
 	{
 		path: '/actuality',
@@ -48,9 +73,29 @@ const routes = [
 		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostListing.vue')
 	},
 	{
+		path: '/animals/lost/:id',
+		name: 'LostProfil',
+		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostProfil.vue')
+	},
+	{
+		path: '/animals/form/lost',
+		name: 'LostForm',
+		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostForm.vue')
+	},
+	{
 		path: '/animals/find',
 		name: 'FindListing',
 		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindListing.vue')
+	},
+	{
+		path: '/animals/form/find',
+		name: 'FindForm',
+		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindForm.vue')
+	},
+	{
+		path: '/animals/find/:id',
+		name: 'FindProfil',
+		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindProfil.vue')
 	},
 
 

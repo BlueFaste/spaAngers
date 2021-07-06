@@ -6,7 +6,8 @@
 			<div class="footer--container--newsletter">
 				<h2>Restez informés</h2>
 				<p>Abonnez-vous à notre newsletter</p>
-				<Form></Form>
+				<Form type="email" placeholder="Votre adresse e-mail" submit-text=">"></Form>
+
 			</div>
 
 			<div class="footer--container--address">

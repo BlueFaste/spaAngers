@@ -5,7 +5,7 @@
 				<img :src="require('@/assets/dog-orange-circle.webp')" alt="">
 				<p>Comme chaque année, le combat contre l'abandon des animaux continue.
 					Aidez la SPAA Angers.</p>
-				<router-link to="/">
+				<router-link to="/donation">
 					<Button text="Faire un don" ticTac="rigth" color="orange"></Button>
 				</router-link>
 				<router-link to="/animals/adoption">
@@ -108,7 +108,7 @@ export default {
 			helpList: [
 				{
 					text: 'Vous souhaitez nous aider en nous accordant du temps et en partageant votre passion et votre savoir-faire ? Alors rejoignez les 4 000 bénévoles de la SPA !',
-					link: '/',
+					link: '/volunteer',
 					tictac: 'rigth',
 					btnText: 'Je deviens bénévole',
 					btnTictac: 'rigth',
@@ -126,7 +126,7 @@ export default {
 				},
 				{
 					text: 'Aidez-nous à mener à bien nos missions ! La SPA vit principalement de la générosité du public et compte donc sur votre soutien pour secourir, défendre et protéger les animaux.',
-					link: '/',
+					link: '/donation',
 					tictac: 'rigth',
 					btnText: 'Je fais un don',
 					btnTictac: 'rigth',

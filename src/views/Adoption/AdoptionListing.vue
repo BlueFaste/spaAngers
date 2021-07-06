@@ -24,8 +24,8 @@
 			</header>
 
 			<article class="adoption--list--container">
-				<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-						:link="`adoption/${key}`" :key="key" tictac="left"></box-img>
+				<box-img v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
+						:link="`adoption/${key}`" :key="key" tictac="left" :image="animal.img"></box-img>
 				<p v-show="animalDisplayList.length == 0">Aucun animal n'est à adopter...</p>
 
 			</article>
@@ -53,49 +53,49 @@ export default {
 				{
 					name: `Trumpy`,
 					link: '/',
-					img: '',
+					img: 'edgar-kitten.jpg',
 					animal: 'cat',
 				},
 				{
 					name: 'Titi Jr',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'dog',
 				},
 				{
 					name: 'Mélania',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'dog',
 				},
 				{
 					name: 'Obama',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'puppy',
 				},
 				{
 					name: `Mimi`,
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'dog',
 				},
 				{
 					name: 'Jeanmapen',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'kitten',
 				},
 				{
 					name: 'Mamapen',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'cat',
 				},
 				{
 					name: 'Emma',
 					link: '/',
-					img: '',
+					img: '@/assets/edgar-kitten.jpg',
 					animal: 'cat',
 				},
 			],

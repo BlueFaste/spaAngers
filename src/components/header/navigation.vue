@@ -2,7 +2,7 @@
 	<nav class="nav">
 		<header class="nav--header">
 			<router-link to="/" class="nav--header-logo">
-				<img src="https://www.la-spa.fr/sites/all/themes/bluemasters/logo.svg" alt="">
+				<img :src="require('@/assets/logo-spaa.svg')" alt="">
 			</router-link>
 			<div @click="close()">
 				<img :src="require('@/assets/close-burger-menu.svg')" alt="">
@@ -15,7 +15,7 @@
 				</router-link>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/fights">
 					Nos combats
 				</router-link>
 			</li>
@@ -41,12 +41,12 @@
 				</ul>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/donation">
 					Donations
 				</router-link>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/abandon">
 					Abandons
 				</router-link>
 			</li>
@@ -65,14 +65,14 @@
 						</router-link>
 					</li>
 					<li @click="close()">
-						<router-link to="/">
+						<router-link to="/faq">
 							FAQ
 						</router-link>
 					</li>
 				</ul>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/contact">
 					Contact
 				</router-link>
 			</li>

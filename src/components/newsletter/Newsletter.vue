@@ -4,7 +4,7 @@
 			<h2>Newsletter</h2>
 			<p>En vous inscrivant à la Newsletter de la SPA, vous recevrez dans votre boîte mail les dernières actualités
 				de la Société Protectrice des Animaux. Merci de l'intérêt que vous portez à notre action.</p>
-			<Form @submit="newsLetter"></Form>
+			<Form @submit="newsLetter" type="email" placeholder="Votre adresse e-mail" submit-text=">"></Form>
 		</template>
 	</BrownContainer>
 </template>

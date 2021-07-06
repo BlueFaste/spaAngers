@@ -4,7 +4,9 @@
 			<h2>Oups...</h2>
 			<p>Un problème est survenu...</p>
 			<p>Erreur <span class="error--text--chiffre">500</span>...</p>
-			<Button text="Retour à l'accueil" ticTac="rigth" color="orange"></Button>
+			<router-link to="/">
+				<Button text="Retour à l'accueil" ticTac="rigth" color="orange"></Button>
+			</router-link>
 		</section>
 
 		<img class="error--img" :src="require('@/assets/goldenRetriever-nav.png')" alt="">
