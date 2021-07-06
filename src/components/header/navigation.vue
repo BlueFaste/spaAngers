@@ -65,7 +65,7 @@
 						</router-link>
 					</li>
 					<li @click="close()">
-						<router-link to="/">
+						<router-link to="/faq">
 							FAQ
 						</router-link>
 					</li>
