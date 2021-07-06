@@ -20,7 +20,7 @@
 			</ul>
 			<p>Un point sera fait chaque trimestre pour suivre les projets et en faire le bilan.</p>
 			<p>Comme vous le constatez, nous ne manquons pas d'idées mais plutôt de bonne volonté. </p>
-			<p>Donc n'hésitez pas à <router-link to="/">nous contacter.</router-link></p>
+			<p>Donc n'hésitez pas à <router-link to="/contact">nous contacter.</router-link></p>
 		</article>
 	</section>
 </template>

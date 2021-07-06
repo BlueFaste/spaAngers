@@ -1,36 +1,48 @@
 <template>
-	<section class="findForm">
-		<h2>Mon annonce</h2>
-		<article class="findForm--animal">
-			<h3 class="findForm--animal--titre--tictac-left">L'animal</h3>
+	<section class="adoptionForm">
+		<h2>Ajouter un animal</h2>
+		<article class="adoptionForm--animal">
+			<h3 class="adoptionForm--animal--titre--tictac-left">Infos animal</h3>
+			<div class="d-flex justify-content-between">
+				<Form type="text" placeholder="Nom"></Form>
+				<Form  type="date" placeholder="Date de naissance"></Form>
+			</div>
 			<div class="d-flex justify-content-between">
 				<Form type="text" placeholder="Espèce"></Form>
 				<Form type="text" placeholder="Sexe"></Form>
 			</div>
 			<Form type="text" placeholder="Race/apparence"></Form>
+			<Form type="textarea" placeholder="Détail supplémentaires..."></Form>
+			<Form class="adoptionForm--disparition--input-file" type="file" placeholder="Ajouter une image" text-after="Ajouter une image +"></Form>
+
 		</article>
 
-		<article class="findForm--informations">
-			<h3 class="findForm--informations--titre--tictac-left">Informations supplémentaires</h3>
-			<Form type="text" placeholder="Lieu où vous l'avez trouvé"></Form>
-			<Form type="text" placeholder="Trouvé le..."></Form>
-			<Form type="textarea" placeholder="Description"></Form>
-			<Form class="findForm--informations--input-file" type="file" placeholder="Ajouter une image" text-after="Ajouter une image +"></Form>
-		</article>
+			<Button text="Poster l'adoption" ticTac="left" color="orange" @click="sendMessage"></Button>
 
-		<router-link to="/">
-			<Button text="Poster l'annonce" ticTac="left" color="orange"></Button>
-		</router-link>
+
+		<PopUp @close="sendMessage" :text-array="['L\'annonce d\'adoption à bien été posté']" v-show="popUpMessage"></PopUp>
+
 	</section>
 </template>
 
 <script>
 import Form from "../../components/form/form";
 import Button from "../../components/button/button";
+import PopUp from "../../components/popUp/PopUp";
 
 export default {
-	name: "findForm",
-	components: {Button, Form},
+	name: "adoptionForm",
+	components: {PopUp, Button, Form},
+	data(){
+		return{
+			popUpMessage: false,
+		}
+	},
+	methods: {
+		sendMessage(){
+			this.popUpMessage = !this.popUpMessage
+		}
+	}
 }
 </script>
 
@@ -39,14 +51,14 @@ export default {
 @import "src/styles/functions";
 @import "src/styles/mixims";
 
-.findForm {
+.adoptionForm {
 	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 
 	.button {
 		width: 82vw;
 	}
 
-	&--animal, &--informations {
+	&--animal {
 		&--titre {
 			@include button-tictac
 		}
@@ -85,20 +97,16 @@ export default {
 	&--animal {
 		div{
 			form{
-				margin: 0;
+				margin: calc-rem(5) 0;
 			}
+		}
+		&--type {
+			display: flex;
+			justify-content: space-between;
+			margin: calc-rem(15) 0;
 		}
 	}
 
-	&--informations {
-		margin-top: calc-rem(40);
-
-		&--input-file{
-			.form--input-email{
-				display: none;
-			}
-		}
-	}
 
 }
 

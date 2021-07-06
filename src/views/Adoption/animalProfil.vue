@@ -32,7 +32,9 @@
 				<h2>Je souhaite adopter</h2>
 				<h2 class="animalProfil--adoption--container--animalName">Titi JR :</h2>
 				<div class="animalProfil--adoption--container--button">
-					<Button text="Contact" ticTac="left" color="orange" :icon="true" :icon-rigth="true"></Button>
+					<router-link to="/contact">
+						<Button text="Contact" ticTac="left" color="orange" :icon="true" :icon-rigth="true"></Button>
+					</router-link>
 					<Button text="Itinéraire" ticTac="left" color="brown" :icon="true" :icon-rigth="true"></Button>
 				</div>
 			</article>

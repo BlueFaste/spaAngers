@@ -11,13 +11,13 @@
 		<section class="refuge--summary">
 			<h2> Sommaire</h2>
 			<div class="refuge--summary--button">
-				<anchor-router-link v-for="(button, key) in summaryList"
+				<router-link v-for="(button, key) in summaryList"
 						:key="key"
-						:to="{name:'refuge', hash:`#${button.id}`}"
+						:to="`#${button.id}`"
 						:scrollOptions="scrollOptions">
 					<Button :text="button.name" :key="key" tic-tac="left" color="brown"
 							:icon="true" :icon-rigth="true"></Button>
-				</anchor-router-link>
+				</router-link>
 			</div>
 		</section>
 		<section class="refuge--role">
@@ -156,12 +156,11 @@
 <script>
 import Box from "../../components/box/box";
 import Button from "../../components/button/button";
-import AnchorRouterLink from 'vue-anchor-router-link';
 import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "Refuge",
-	components: {BrownContainer, Button, Box, AnchorRouterLink},
+	components: {BrownContainer, Button, Box},
 	data() {
 		return {
 			summaryList: [

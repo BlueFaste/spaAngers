@@ -68,6 +68,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/animalProfil.vue')
 	},
 	{
+		path: '/animals/form/adoption',
+		name: 'Adoption',
+		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/AdaptionForm.vue')
+	},
+	{
 		path: '/animals/lost',
 		name: 'LostListing',
 		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostListing.vue')
@@ -112,7 +117,12 @@ const routes = [
 const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
-	routes
+	routes,
+	scrollBehavior: function(to) {
+		if(to.hash) {
+			return {selector: to.hash}
+		}
+	},
 })
 
 

@@ -279,7 +279,7 @@ export default {
 				flex-grow: 1;
 				flex-shrink: 0;
 				//flex-basis: 450px;
-				scroll-snap-align: start;
+				scroll-snap-align: center;
 			}
 		}
 	}
