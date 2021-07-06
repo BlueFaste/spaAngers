@@ -82,6 +82,7 @@
 			</select>
 			<Form type="text" placeholder="Votre adresse email"></Form>
 			<Form type="tel" placeholder="Numéro de télephone"></Form>
+			<Form v-show="society" type="text" placeholder="Raison sociale"></Form>
 			<div class="donation--coord--orga">
 				<input type="checkbox" id="donOrga" @click="checked('donOrga')">
 				<label for="donOrga" id="donOrga-label">Je fais un don au nom d'une organisation
@@ -158,6 +159,7 @@ export default {
 	data() {
 		return {
 			cb: false,
+			society: false,
 		}
 	},
 	methods: {
@@ -177,6 +179,11 @@ export default {
 			} else if(idEl == 'paypal') {
 				document.getElementById('carteBancaire-label').classList.remove('checked')
 				this.cb = false
+			}
+
+			if(idEl == 'donOrga'){
+				this.society = !this.society;
+
 			}
 		},
 	}
