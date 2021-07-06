@@ -41,7 +41,7 @@
 				</ul>
 			</li>
 			<li @click="close()">
-				<router-link to="/">
+				<router-link to="/donation">
 					Donations
 				</router-link>
 			</li>
