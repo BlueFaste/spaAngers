@@ -29,7 +29,7 @@
 			</div>
 		</div>
 	</article>
-	<router-link to="/">
+	<router-link to="/contact">
 		<Button text="Nous contacter" ticTac="left" color="orange"></Button>
 	</router-link>
 
