@@ -23,19 +23,30 @@
 			<Form type="textarea" placeholder="Message"></Form>
 		</article>
 
-		<router-link to="/">
-			<Button text="Envoyer" ticTac="left" color="orange"></Button>
-		</router-link>
+		<Button text="Envoyer" ticTac="left" color="orange" @click="sendMessage"></Button>
+
+		<PopUp @close="sendMessage" :text-array="['Votre message à bien été envoyé', 'Nous vous contacterons dès que possible']" v-show="popUpMessage"></PopUp>
 	</section>
 </template>
 
 <script>
 import Form from "../../components/form/form";
 import Button from "../../components/button/button";
+import PopUp from "../../components/popUp/PopUp";
 
 export default {
 	name: "contact",
-	components: {Button, Form},
+	components: {PopUp, Button, Form},
+	data(){
+		return{
+			popUpMessage: false,
+		}
+	},
+	methods: {
+		sendMessage(){
+			this.popUpMessage = !this.popUpMessage
+		}
+	}
 }
 </script>
 
@@ -115,7 +126,7 @@ export default {
 			}
 		}
 	}
-	
+
 }
 
 </style>

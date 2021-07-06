@@ -138,28 +138,28 @@
 				</div>
 
 			</div>
-			<router-link to="/" v-if="cb">
-				<Button text="Valider le don" ticTac="left" color="orange"></Button>
-			</router-link>
+			<Button v-if="cb" @click="sendMessage" text="Valider le don" ticTac="left" color="orange"></Button>
 			<router-link to="/" v-else>
 				<Button text="Continuer" ticTac="left" color="orange"></Button>
 			</router-link>
 		</article>
-
+		<PopUp @close="sendMessage" :text-array="['Votre don a bien été envoyé', 'Nous vous remercions pour le soutien de notre cause']" v-show="popUpMessage"></PopUp>
 	</section>
 </template>
 
 <script>
 import Form from "../../components/form/form";
 import Button from "../../components/button/button";
+import PopUp from "../../components/popUp/PopUp";
 
 export default {
 	name: "donation",
-	components: {Button, Form},
+	components: {PopUp, Button, Form},
 	data() {
 		return {
 			cb: false,
 			society: false,
+			popUpMessage: false,
 		}
 	},
 	methods: {
@@ -186,6 +186,10 @@ export default {
 
 			}
 		},
+
+		sendMessage(){
+			this.popUpMessage = !this.popUpMessage
+		}
 	}
 }
 </script>
