@@ -68,6 +68,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/animalProfil.vue')
 	},
 	{
+		path: '/animals/form/adoption',
+		name: 'Adoption',
+		component: () => import(/* webpackChunkName: "Adoption" */ '../views/Adoption/AdaptionForm.vue')
+	},
+	{
 		path: '/animals/lost',
 		name: 'LostListing',
 		component: () => import(/* webpackChunkName: "LostListing" */ '../views/Lost/LostListing.vue')
