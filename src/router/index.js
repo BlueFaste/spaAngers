@@ -83,6 +83,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindListing.vue')
 	},
 	{
+		path: '/animals/form/find',
+		name: 'FindForm',
+		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindForm.vue')
+	},
+	{
 		path: '/animals/find/:id',
 		name: 'FindProfil',
 		component: () => import(/* webpackChunkName: "FindListing" */ '../views/Find/FindProfil.vue')
