@@ -48,6 +48,7 @@ export default {
 @import "src/styles/mixims";
 .toggleDeroulant{
 	margin-bottom: calc-rem(30);
+	color: $primary-brown !important;
 
 	&--header{
 		display: flex;
