@@ -156,14 +156,11 @@
 <script>
 import Box from "../../components/box/box";
 import Button from "../../components/button/button";
-// import AnchorRouterLink from 'vue-anchor-router-link';
 import BrownContainer from "../../components/container/brownContainer";
 
 export default {
 	name: "Refuge",
-	components: {BrownContainer, Button, Box,
-		// AnchorRouterLink
-	},
+	components: {BrownContainer, Button, Box},
 	data() {
 		return {
 			summaryList: [
