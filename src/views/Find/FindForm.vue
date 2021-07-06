@@ -1,6 +1,6 @@
 <template>
 	<section class="findForm">
-		<h2>Votre annonce</h2>
+		<h2>Mon annonce</h2>
 		<article class="findForm--animal">
 			<h3 class="findForm--animal--titre--tictac-left">L'animal</h3>
 			<div class="d-flex justify-content-between">

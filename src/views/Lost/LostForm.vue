@@ -1,8 +1,8 @@
 <template>
 	<section class="lostForm">
-		<h2>Votre annonce</h2>
+		<h2>Mon annonce</h2>
 		<article class="lostForm--animal">
-			<h3 class="lostForm--animal--titre--tictac-left">Votre animal</h3>
+			<h3 class="lostForm--animal--titre--tictac-left">Mon animal</h3>
 			<div class="d-flex justify-content-between">
 				<Form type="text" placeholder="Nom"></Form>
 				<Form  type="date" placeholder="Date de naissance"></Form>
