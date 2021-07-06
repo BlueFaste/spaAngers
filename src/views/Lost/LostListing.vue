@@ -18,7 +18,7 @@
 
 			<p>Postez votre annonce en cliquant sur le bouton ci-dessous.</p>
 
-			<router-link to="/form/lost">
+			<router-link to="form/lost">
 				<Button text="Poster mon annonce" ticTac="left" color="orange"></Button>
 			</router-link>
 

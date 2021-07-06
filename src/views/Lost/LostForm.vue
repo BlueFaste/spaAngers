@@ -80,31 +80,6 @@ import Button from "../../components/button/button";
 export default {
 	name: "lostForm",
 	components: {Button, Form},
-	data() {
-		return {
-			cb: false,
-		}
-	},
-	methods: {
-		checked(idEl) {
-			console.log(idEl)
-			const check = document.getElementById(`${idEl}-label`);
-			console.log(check.classList.value.includes('checked'))
-			if(check.classList.value.includes('checked')) {
-				check.classList.remove('checked')
-			} else {
-				check.classList.add('checked')
-			}
-
-			if(idEl == 'carteBancaire') {
-				document.getElementById('paypal-label').classList.remove('checked')
-				this.cb = !this.cb
-			} else if(idEl == 'paypal') {
-				document.getElementById('carteBancaire-label').classList.remove('checked')
-				this.cb = false
-			}
-		},
-	}
 }
 </script>
 
@@ -169,7 +144,11 @@ export default {
 	//}
 
 	&--animal {
-
+		div{
+			form{
+				margin: calc-rem(5) 0;
+			}
+		}
 		&--type {
 			display: flex;
 			justify-content: space-between;
