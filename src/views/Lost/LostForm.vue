@@ -5,7 +5,7 @@
 			<h3 class="lostForm--animal--titre--tictac-left">Votre animal</h3>
 			<div class="d-flex justify-content-between">
 				<Form type="text" placeholder="Nom"></Form>
-				<Form type="date" placeholder="Date de naissance"></Form>
+				<Form  type="date" placeholder="Date de naissance"></Form>
 			</div>
 			<div class="d-flex justify-content-between">
 				<Form type="text" placeholder="Espèce"></Form>
@@ -144,7 +144,7 @@ export default {
 	}
 
 	h2 {
-		margin-bottom: calc-rem(20);
+		margin-bottom: calc-rem(20) !important;
 	}
 
 	h3 {
@@ -153,19 +153,20 @@ export default {
 		text-align: center;
 		color: white !important;
 		padding: calc-rem(5) 0 !important;
+		font-weight: bold;
 	}
 
-	header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		h2 {
-			margin-top: calc-rem(20);
-			text-transform: initial;
-			text-align: center;
-		}
-	}
+	//header {
+	//	display: flex;
+	//	flex-direction: column;
+	//	align-items: center;
+	//
+	//	h2 {
+	//		margin-top: calc-rem(20);
+	//		text-transform: initial;
+	//		text-align: center;
+	//	}
+	//}
 
 	&--animal {
 
