@@ -115,6 +115,8 @@ export default {
 					}else if(this.animalAdoption.specie == 'kitten'){
 						this.animalAdoption.specie = "Chaton"
 					}
+					const birthArray =this.animalAdoption.birthdate.split('-')
+					this.animalAdoption.birthdate = `${birthArray[2]}/${birthArray[1]}/${birthArray[0]}`
 				}
 			})
 		}
