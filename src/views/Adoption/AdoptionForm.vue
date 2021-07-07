@@ -20,7 +20,7 @@
 			<Button text="Poster l'adoption" ticTac="left" color="orange" @click="sendAnimal"></Button>
 
 
-		<PopUp @close="openPopUp" :text-array="['L\'annonce d\'adoption à bien été posté']" v-show="popUpMessage"></PopUp>
+		<PopUp @close="openPopUp" :text-array="['L\'annonce d\'adoption a bien été postée']" v-show="popUpMessage"></PopUp>
 
 	</section>
 </template>
