@@ -4,21 +4,21 @@
 		<section class="findProfil--desc">
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Espèce: </span> Chien
+					<span class="fw-bold">Espèce: </span> {{ animalFind.specie }}
 				</p>
 				<p>
-					<span class="fw-bold">Sexe: </span> Male
+					<span class="fw-bold">Sexe: </span> {{ animalFind.sex }}
 				</p>
 			</div>
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Race/Apparence: </span> Husky
+					<span class="fw-bold">Race/Apparence: </span> <br> {{ animalFind.race }}
 				</p>
 				<p>
-					<span class="fw-bold">Lieu d'apparation: </span> Avenue du général Patton
+					<span class="fw-bold">Lieu d'apparation: </span> <br>{{ animalFind.findPlace }}
 				</p>
 			</div>
-			<p><span class="fw-bold">Description: </span> <br>Retrouvé près d'une poubelle, affamé. Il a été récupéré en bonne santé.</p>
+			<p><span class="fw-bold">Description: </span> <br>{{ animalFind.findDescription }}</p>
 		</section>
 
 		<section class="findProfil--adoption">
@@ -54,8 +54,27 @@ import BoxImg from "../../components/box/boxImg";
 export default {
 	name: "findProfil",
 	components: {BoxImg, Button},
+	firebase() {
+		return{
+			animalsFind: this.$db.ref('/animalsFind/').child(this.$route.params.id).get().then( (snapshot) => {
+				if (snapshot.exists()){
+					this.animalFind = snapshot.val()
+					if(this.animalFind.specie == 'cat'){
+						this.animalFind.specie = "Chat"
+					} else if(this.animalFind.specie == 'dog'){
+						this.animalFind.specie = "Chien"
+					}else if(this.animalFind.specie == 'puppy'){
+						this.animalFind.specie = "Chiot"
+					}else if(this.animalFind.specie == 'kitten'){
+						this.animalFind.specie = "Chaton"
+					}
+				}
+			})
+		}
+	},
 	data() {
 		return {
+			animalFind:[],
 			animalsList: [
 				{
 					name: 'Mélania',

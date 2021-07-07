@@ -4,33 +4,80 @@
 		<article class="findForm--animal">
 			<h3 class="findForm--animal--titre--tictac-left">L'animal</h3>
 			<div class="d-flex justify-content-between">
-				<Form type="text" placeholder="Espèce"></Form>
-				<Form type="text" placeholder="Sexe"></Form>
+				<Form @change="textUpdate('specie', $event)" type="text" placeholder="Espèce"></Form>
+				<Form @change="textUpdate('sexe', $event)" type="text" placeholder="Sexe"></Form>
 			</div>
-			<Form type="text" placeholder="Race/apparence"></Form>
+			<Form @change="textUpdate('race', $event)" type="text" placeholder="Race/apparence"></Form>
 		</article>
 
 		<article class="findForm--informations">
 			<h3 class="findForm--informations--titre--tictac-left">Informations supplémentaires</h3>
-			<Form type="text" placeholder="Lieu où vous l'avez trouvé"></Form>
-			<Form type="text" placeholder="Trouvé le..."></Form>
-			<Form type="textarea" placeholder="Description"></Form>
+			<Form @change="textUpdate('findPlace', $event)" type="text" placeholder="Lieu où vous l'avez trouvé"></Form>
+			<Form @change="textUpdate('findDate', $event)" type="text" placeholder="Trouvé le..."></Form>
+			<Form @change="textUpdate('findDescription', $event)" type="textarea" placeholder="Description"></Form>
 			<Form class="findForm--informations--input-file" type="file" placeholder="Ajouter une image" text-after="Ajouter une image +"></Form>
 		</article>
+		<Button text="Poster l'annonce" ticTac="left" color="orange" @click="sendAnimal"></Button>
+		<PopUp @close="openPopUp" :text-array="['L\'annonce à bien été posté']" v-show="popUpMessage"></PopUp>
 
-		<router-link to="/">
-			<Button text="Poster l'annonce" ticTac="left" color="orange"></Button>
-		</router-link>
 	</section>
 </template>
 
 <script>
 import Form from "../../components/form/form";
 import Button from "../../components/button/button";
+import PopUp from "../../components/popUp/PopUp";
 
 export default {
 	name: "findForm",
-	components: {Button, Form},
+	components: {PopUp, Button, Form},
+	firebase() {
+		return{
+			animalsFind: this.$db.ref('/animalsFind/')
+		}
+	},
+	data(){
+		return{
+			popUpMessage : false,
+			formValue: {
+				specie:'',
+				sex:'',
+				race:'',
+
+				findPlace:'',
+				findDate:'',
+				findDescription:'',
+				enabled: true,
+			}
+		}
+	},
+	methods: {
+		textUpdate(data,value){
+			console.log(data)
+			console.log('value',value)
+			this.formValue[data]=value;
+		},
+		sendAnimal(){
+			console.log(this.formValue)
+			this.formValue.specie = this.formValue.specie.toLowerCase();
+			if(this.formValue.specie == 'chat'){
+				this.formValue.specie = "cat"
+			} else if(this.formValue.specie == 'chien'){
+				this.formValue.specie = "dog"
+			}else if(this.formValue.specie == 'chiot'){
+				this.formValue.specie = "puppy"
+			}else if(this.formValue.specie == 'chaton'){
+				this.formValue.specie = "kitten"
+			}
+			this.$firebaseRefs.animalsFind.push(this.formValue)
+			this.openPopUp()
+		},
+		openPopUp(){
+			console.log(this.formValue)
+			this.popUpMessage = !this.popUpMessage
+		},
+	}
+
 }
 </script>
 
