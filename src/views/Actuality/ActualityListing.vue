@@ -4,15 +4,15 @@
 			<h2>Les dernières actualités</h2>
 			<box background="beige" tic-tac="rigth">
 				<template v-slot:content>
-					49 articles
+					{{ actuList.length }} articles
 				</template>
 			</box>
 		</header>
 		<div class="actuality--container">
-			<box-img v-for="(actu, key) in actuList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
+			<box-img v-for="(actu, key) in actuDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 					:link="`/actuality/${key}`" :key="key" tictac="left"></box-img>
 		</div>
-		<Button text="Voir plus" ticTac="left" color="orange"></Button>
+		<Button text="Voir plus" ticTac="left" color="orange" @click="addMore"></Button>
 	</main>
 </template>
 
@@ -24,8 +24,15 @@ import Button from "../../components/button/button";
 export default {
 	name: "Actuality",
 	components: {Button, BoxImg, Box},
+	created() {
+		this.actuDisplayList = this.actuList.slice(0,this.numberDisplay);
+	},
 	data() {
 		return {
+			numberDisplay: 6,
+			multiplicateurDisplay:1,
+
+			actuDisplayList: [],
 			actuList: [
 				{
 					name: `Les actualités du mois de juin 2021`,
@@ -108,6 +115,12 @@ export default {
 					img: '',
 				},
 			],
+		}
+	},
+	methods: {
+		addMore(){
+			this.multiplicateurDisplay++;
+			this.actuDisplayList = this.actuList.slice(0 , (this.numberDisplay*this.multiplicateurDisplay));
 		}
 	}
 }
