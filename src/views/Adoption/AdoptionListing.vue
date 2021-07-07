@@ -189,8 +189,12 @@ export default {
 
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		.button{
+			align-self: center;
+		}
 
 		&--header {
 			display: flex;
