@@ -3,46 +3,45 @@
 		<div class="lostProfil--img--tictac-rigth"></div>
 		<section class="lostProfil--desc">
 			<p>
-				<span class="fw-bold">Nom: </span> Dogo
+				<span class="fw-bold">Nom: </span> {{ animalLost.name }}
 			</p>
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Espèce: </span> Chat
+					<span class="fw-bold">Espèce: </span> {{ animalLost.specie }}
 				</p>
 				<p>
-					<span class="fw-bold">Sexe: </span> Male
+					<span class="fw-bold">Sexe: </span> {{animalLost.sex}}
 				</p>
 			</div>
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Race/Apparence: </span> Roux
+					<span class="fw-bold">Race/Apparence: </span> <br>{{ animalLost.race }}
 				</p>
 				<p>
-					<span class="fw-bold">Date de naissance: </span> 11/06/2021
+					<span class="fw-bold">Date de naissance: </span> {{ animalLost.birthdate }}
 				</p>
 			</div>
 				<div class="d-flex">
 				<p>
-					<span class="fw-bold">Lieu de disparition: </span>  <br>Rue Saint-Jacques
+					<span class="fw-bold">Lieu de disparition: </span>  <br>{{ animalLost.lossPlace }}
 				</p>
 				<p>
-					<span class="fw-bold">Date de disparition: </span> 26/06/2021
+					<span class="fw-bold">Date de disparition: </span> <br> {{ animalLost.lossdate }}
 				</p>
 			</div>
-			<p><span class="fw-bold">Description: </span> <br>Dogo est notre nouveau chien nous l'avons perdu le 28 juin.
-				Aidez-nous à le retrouver s'il vous plait !</p>
+			<p><span class="fw-bold">Description: </span> <br>{{ animalLost.lossMore }}</p>
 		</section>
 
 		<BrownContainer class="lostProfil--have-seen">
 			<template v-slot:content>
 				<h2>Vous l'avez vu ?</h2>
-				<p>Contactez dès maintenant la propriétaire Mme Carolaïne Fassau avec les coordonnées ci-dessous.
+				<p>Contactez dès maintenant la propriétaire {{ animalLost.ownerTitle }} {{animalLost.ownerFirstname}} {{animalLost.ownerLastname}} avec les coordonnées ci-dessous.
 					Merci de votre aide !  </p>
 				<label for="mail">Adresse e-mail :</label>
-				<p id="mail">carolaïne.fassau@gmail.com</p>
+				<p id="mail">{{ animalLost.ownerEmail }}</p>
 
 				<label for="phone">Numéro de téléphone :</label>
-				<p id="phone">01 23 45 67 89</p>
+				<p id="phone">{{ animalLost.ownerPhone }}</p>
 			</template>
 
 		</BrownContainer>
@@ -69,8 +68,28 @@ import BrownContainer from "../../components/container/brownContainer";
 export default {
 	name: "lostProfil",
 	components: {BrownContainer, BoxImg, Button},
+	firebase() {
+		return{
+			animalsLost: this.$db.ref('/animalsLost/').child(this.$route.params.id).get().then( (snapshot) => {
+				if (snapshot.exists()){
+					this.animalLost = snapshot.val()
+					if(this.animalLost.specie == 'cat'){
+						this.animalLost.specie = "Chat"
+					} else if(this.animalLost.specie == 'dog'){
+						this.animalLost.specie = "Chien"
+					}else if(this.animalLost.specie == 'puppy'){
+						this.animalLost.specie = "Chiot"
+					}else if(this.animalLost.specie == 'kitten'){
+						this.animalLost.specie = "Chaton"
+					}
+				}
+			})
+		}
+	},
+
 	data() {
 		return {
+			animalLost: [],
 			animalsList: [
 				{
 					name: `Trumpy`,
