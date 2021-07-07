@@ -29,14 +29,14 @@ export default {
 			img: '',
 		}
 	},
-	created() {
-		let tes = `../../assets/${this.image}`
-		this.img = `url("${require(tes)}")`;
-		console.log('iii',this.img)
-
-		console.log(this.tictac)
-
-	},
+	// created() {
+	// 	let tes = `../../assets/${this.image}`
+	// 	this.img = `url("${require(tes)}")`;
+	// 	console.log('iii',this.img)
+	//
+	// 	console.log(this.tictac)
+	//
+	// },
 	methods: {
 		rootClasses() {
 			return [{
