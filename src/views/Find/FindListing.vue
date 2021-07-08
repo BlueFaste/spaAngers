@@ -1,12 +1,12 @@
 <template>
 	<main class="findListing">
 		<header class="findListing--header">
-			<h2>{{ animalsFind.length }} Animaux trouvés</h2>
+			<h2>{{ animalsList.length }} Animaux trouvés</h2>
 			<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
 		</header>
 		<section class="findListing--list">
-			<box-img v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
-					:link="`find/${animal['.key']}`" :key="key" tictac="left"></box-img>
+			<BoxImg v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
+					:link="`find/${animal['.key']}`" :key="key" tictac="left"></BoxImg>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été trouvé...</p>
 
 		</section>
@@ -20,6 +20,7 @@ import BoxImg from "../../components/box/boxImg";
 
 export default {
 	name: "findListing",
+	components: {BoxImg, Filters},
 	created() {
 		this.animalDisplayList = this.animalsList
 	},
