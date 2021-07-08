@@ -12,7 +12,7 @@
 			<box-img v-for="(actu, key) in actuDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
 					:link="`/actuality/${key}`" :key="key" tictac="left"></box-img>
 		</div>
-		<Button text="Voir plus" ticTac="left" color="orange" @click="addMore"></Button>
+		<Button text="Voir plus" ticTac="left" color="orange" @click="addMore" v-if="actuDisplayList.length !== actuList.length"></Button>
 	</main>
 </template>
 
