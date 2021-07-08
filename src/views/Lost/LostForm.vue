@@ -4,82 +4,107 @@
 		<article class="lostForm--animal">
 			<h3 class="lostForm--animal--titre--tictac-left">Mon animal</h3>
 			<div class="d-flex justify-content-between">
-				<Form type="text" placeholder="Nom"></Form>
-				<Form  type="date" placeholder="Date de naissance"></Form>
+				<Form @change="textUpdate('name', $event)" type="text" placeholder="Nom"></Form>
+				<Form @change="textUpdate('birthdate', $event)"  type="date" placeholder="Date de naissance"></Form>
 			</div>
 			<div class="d-flex justify-content-between">
-				<Form type="text" placeholder="Espèce"></Form>
-				<Form type="text" placeholder="Sexe"></Form>
+				<Form @change="textUpdate('specie', $event)" type="text" placeholder="Espèce"></Form>
+				<Form @change="textUpdate('sex', $event)" type="text" placeholder="Sexe"></Form>
 			</div>
-			<Form type="text" placeholder="Race/apparence"></Form>
+			<Form @change="textUpdate('race', $event)" type="text" placeholder="Race/apparence"></Form>
 		</article>
 
 		<article class="lostForm--coord">
 			<h3 class="lostForm--coord--titre--tictac-left">Mes coordonnées</h3>
 			<div class="lostForm--coord--input">
-				<select name="civilité" id="civilité" class="select select--tictac-left">
+				<select name="civilité" id="civilité" class="select select--tictac-left" @change="textUpdate('ownerTitle', $event.target.value)">
 					<option value="">Civilité</option>
-					<option value="M">Monsieur</option>
-					<option value="Mme">Madame</option>
+					<option value="m">Monsieur</option>
+					<option value="mme">Madame</option>
 					<option value="other">Autre</option>
 				</select>
-				<Form type="text" placeholder="Prénom"></Form>
+				<Form @change="textUpdate('ownerFirstname', $event)" type="text" placeholder="Prénom"></Form>
 			</div>
-			<Form type="text" placeholder="Nom"></Form>
-			<select name="country" id="country" class="select select--tictac-left">
-				<option value="France">France</option>
-				<option value="Allemagne">Allemagne</option>
-				<option value="Belgique">Belgique</option>
-				<option value="Autriche">Autriche</option>
-				<option value="Bulgarie">Bulgarie</option>
-				<option value="Chypre">Chypre</option>
-				<option value="Croatie">Croatie</option>
-				<option value="Danemark">Danemark</option>
-				<option value="Espagne">Espagne</option>
-				<option value="Estonie">Estonie</option>
-				<option value="Finlande">Finlande</option>
-				<option value="Grèce">Grèce</option>
-				<option value="Hongrie">Hongrie</option>
-				<option value="Irlande">Irlande</option>
-				<option value="Italie">Italie</option>
-				<option value="Lettonie">Lettonie</option>
-				<option value="Lituanie">Lituanie</option>
-				<option value="Luxembourg">Luxembourg</option>
-				<option value="Malte">Malte</option>
-				<option value="Pays-Bas">Pays-Bas</option>
-				<option value="Pologne">Pologne</option>
-				<option value="Portugal">Portugal</option>
-				<option value="Tchéquie">Tchéquie</option>
-				<option value="Roumanie">Roumanie</option>
-				<option value="Slovaquie">Slovaquie</option>
-				<option value="Slovénie">Slovénie</option>
-				<option value="Suède">Suède</option>
-			</select>
-			<Form type="text" placeholder="Votre adresse email"></Form>
-			<Form type="tel" placeholder="Numéro de télephone"></Form>
+			<Form @change="textUpdate('ownerLastname', $event)" type="text" placeholder="Nom"></Form>
+			<Form @change="textUpdate('ownerEmail', $event)" type="text" placeholder="Votre adresse email"></Form>
+			<Form @change="textUpdate('ownerPhone', $event)" type="tel" placeholder="Numéro de télephone"></Form>
 		</article>
 
 		<article class="lostForm--disparition">
 			<h3 class="lostForm--disparition--titre--tictac-left">La disparition</h3>
-			<Form type="text" placeholder="Lieu de disparition"></Form>
-			<Form type="text" placeholder="Date de disparition"></Form>
-			<Form type="textarea" placeholder="Détail supplémentaires..."></Form>
+			<Form @change="textUpdate('lossPlace', $event)" type="text" placeholder="Lieu de disparition"></Form>
+			<Form @change="textUpdate('lossdate', $event)" type="text" placeholder="Date de disparition"></Form>
+			<Form @change="textUpdate('lossMore', $event)" type="textarea" placeholder="Détail supplémentaires..."></Form>
 			<Form class="lostForm--disparition--input-file" type="file" placeholder="Ajouter une image" text-after="Ajouter une image +"></Form>
 		</article>
 
-		<router-link to="/">
-			<Button text="Poster l'annonce" ticTac="left" color="orange"></Button>
-		</router-link>
+			<Button text="Poster l'annonce" ticTac="left" color="orange" @click="sendAnimal"></Button>
+		<PopUp @close="openPopUp" :text-array="['L\'annonce de disparition a bien été postée.']" v-show="popUpMessage"></PopUp>
 	</section>
 </template>
 
 <script>
 import Form from "../../components/form/form";
 import Button from "../../components/button/button";
+import PopUp from "../../components/popUp/PopUp";
 
 export default {
 	name: "lostForm",
-	components: {Button, Form},
+	components: {PopUp, Button, Form},
+	firebase() {
+		return{
+			animalsLost: this.$db.ref('/animalsLost/')
+		}
+	},
+	data(){
+		return{
+			popUpMessage : false,
+			formValue: {
+				name:'',
+				birthdate:'',
+				specie:'',
+				sex:'',
+				race:'',
+
+				ownerTitle:'',
+				ownerFirstname:'',
+				ownerLastname:'',
+				ownerEmail:'',
+				ownerPhone:'',
+
+				lossPlace:'',
+				lossdate:'',
+				lossMore:'',
+				enabled: true,
+			}
+		}
+	},
+	methods: {
+		textUpdate(data,value){
+			console.log(data)
+			console.log('value',value)
+			this.formValue[data]=value;
+		},
+		sendAnimal(){
+			console.log(this.formValue)
+			this.formValue.specie = this.formValue.specie.toLowerCase();
+			if(this.formValue.specie == 'chat'){
+				this.formValue.specie = "cat"
+			} else if(this.formValue.specie == 'chien'){
+				this.formValue.specie = "dog"
+			}else if(this.formValue.specie == 'chiot'){
+				this.formValue.specie = "puppy"
+			}else if(this.formValue.specie == 'chaton'){
+				this.formValue.specie = "kitten"
+			}
+			this.$firebaseRefs.animalsLost.push(this.formValue)
+			this.openPopUp()
+		},
+		openPopUp(){
+			console.log(this.formValue)
+			this.popUpMessage = !this.popUpMessage
+		},
+	}
 }
 </script>
 
@@ -88,7 +113,7 @@ export default {
 @import "src/styles/functions";
 @import "src/styles/mixims";
 
-.lostForm {
+.lostForm{
 	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
 
 	.button {
@@ -109,7 +134,7 @@ export default {
 		@include button-tictac
 	}
 
-	form {
+	Form {
 		border: solid 1px $primary-brown;
 		margin: calc-rem(10) 0;
 	}
@@ -166,7 +191,7 @@ export default {
 			margin-top: calc-rem(10);
 
 
-			.form {
+			.Form {
 				width: 45vw !important;
 				margin: 0;
 			}

@@ -19,13 +19,13 @@
 
 		<section class="adoption--list">
 			<header class="adoption--list--header">
-				<h2>69 animaux à adopter</h2>
+				<h2>{{ animalsAdoption.length }} animaux à adopter</h2>
 				<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
 			</header>
 
 			<article class="adoption--list--container">
 				<box-img v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
-						:link="`adoption/${key}`" :key="key" tictac="left" :image="animal.img"></box-img>
+						:link="`adoption/${animal['.key']}`" :key="key" tictac="left" :image="animal.img"></box-img>
 				<p v-show="animalDisplayList.length == 0">Aucun animal n'est à adopter...</p>
 
 			</article>
@@ -44,12 +44,19 @@ import Filters from "../../components/filters/filters";
 export default {
 	name: "Adoption",
 	components: {Filters, BoxImg, Button},
+	firebase() {
+		return{
+			animalsAdoption: this.$db.ref('/animalsAdoption/')
+		}
+	},
 	created() {
-		this.animalDisplayList = this.animalsList
+		this.animalDisplayList = this.animalsAdoption
 	},
 	data() {
 		return {
-			animalsList: [
+			// animalsAdoption: [],
+
+			animalsAdoption: [
 				{
 					name: `Trumpy`,
 					link: '/',
@@ -134,9 +141,9 @@ export default {
 			for(const filter in this.filters) {
 				console.log(this.filters[filter])
 				if(this.filters[filter].check) {
-					for(const animal in this.animalsList) {
-						if(this.animalsList[animal].animal == this.filters[filter].animal) {
-							this.animalDisplayList.push(this.animalsList[animal])
+					for(const animal in this.animalsAdoption) {
+						if(this.animalsAdoption[animal].specie == this.filters[filter].animal) {
+							this.animalDisplayList.push(this.animalsAdoption[animal])
 						}
 					}
 				} else {
@@ -144,7 +151,7 @@ export default {
 				}
 			}
 			if(countFilterUncheck == this.filters.length) {
-				this.animalDisplayList = this.animalsList
+				this.animalDisplayList = this.animalsAdoption
 			}
 		},
 	}

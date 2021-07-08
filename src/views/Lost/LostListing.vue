@@ -1,12 +1,12 @@
 <template>
 	<main class="lostListing">
 		<header class="lostListing--header">
-			<h2> 3 Animaux perdus</h2>
+			<h2> {{ animalsLost.length }} Animaux perdus</h2>
 			<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
 		</header>
 		<section class="lostListing--list">
-			<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-					:link="`lost/${key}`" :key="key" tictac="left"></box-img>
+			<box-img v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
+					:link="`lost/${animal['.key']}`" :key="key" tictac="left"></box-img>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été perdu...</p>
 		</section>
 
@@ -36,7 +36,12 @@ export default {
 	name: "LostListing",
 	components: {Button, BoxImg, Filters},
 	created() {
-		this.animalDisplayList = this.animalsList
+		this.animalDisplayList = this.animalsLost
+	},
+	firebase() {
+		return{
+			animalsLost: this.$db.ref('/animalsLost/')
+		}
 	},
 	data() {
 		return {
@@ -64,7 +69,7 @@ export default {
 			],
 
 			animalDisplayList: [],
-			animalsList: [
+			animalsLost: [
 				{
 					name: `Lili Beillourd`,
 					link: '/',
@@ -95,9 +100,9 @@ export default {
 			for(const filter in this.filters) {
 				console.log(this.filters[filter])
 				if(this.filters[filter].check) {
-					for(const animal in this.animalsList) {
-						if(this.animalsList[animal].animal == this.filters[filter].animal) {
-							this.animalDisplayList.push(this.animalsList[animal])
+					for(const animal in this.animalsLost) {
+						if(this.animalsLost[animal].specie == this.filters[filter].animal) {
+							this.animalDisplayList.push(this.animalsLost[animal])
 						}
 					}
 				} else {
@@ -105,7 +110,7 @@ export default {
 				}
 			}
 			if(countFilterUncheck == this.filters.length) {
-				this.animalDisplayList = this.animalsList
+				this.animalDisplayList = this.animalsLost
 			}
 		},
 	}

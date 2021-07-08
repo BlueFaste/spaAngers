@@ -3,26 +3,25 @@
 		<div class="animalProfil--img--tictac-rigth"></div>
 		<section class="animalProfil--desc">
 			<p>
-				<span class="fw-bold">Nom: </span> Titi JR
+				<span class="fw-bold">Nom: </span> {{ animalAdoption.name }}
 			</p>
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Espèce: </span> Chat
+					<span class="fw-bold">Espèce: </span> {{ animalAdoption.specie }}
 				</p>
 				<p>
-					<span class="fw-bold">Sexe: </span> Male
+					<span class="fw-bold">Sexe: </span> {{ animalAdoption.sex }}
 				</p>
 			</div>
 			<div class="d-flex">
 				<p>
-					<span class="fw-bold">Race/Apparence: </span> Tigré
+					<span class="fw-bold">Race/Apparence: </span> {{ animalAdoption.race }}
 				</p>
 				<p>
-					<span class="fw-bold">Date de naissance: </span> 03/10/2020
+					<span class="fw-bold">Date de naissance: </span> {{ animalAdoption.birthdate }}
 				</p>
 			</div>
-			<p><span class="fw-bold">Description: </span> <br>Très gentil et câlineur. Parle beaucoup, a beaucoup de
-				caractère, très exclusif, serait très bien seul dans une famille.</p>
+			<p><span class="fw-bold">Description: </span> <br>{{ animalAdoption.more }}</p>
 		</section>
 
 		<section class="animalProfil--adoption">
@@ -30,7 +29,7 @@
 					class="animalProfil--adoption--design animalProfil--adoption--design-top">
 			<article class="animalProfil--adoption--container">
 				<h2>Je souhaite adopter</h2>
-				<h2 class="animalProfil--adoption--container--animalName">Titi JR :</h2>
+				<h2 class="animalProfil--adoption--container--animalName">{{ animalAdoption.name }} :</h2>
 				<div class="animalProfil--adoption--container--button">
 					<router-link to="/contact">
 						<Button text="Contact" ticTac="left" color="orange" :icon="true" :icon-rigth="true"></Button>
@@ -102,8 +101,29 @@ import BrownContainer from "../../components/container/brownContainer";
 export default {
 	name: "animalProfil",
 	components: {BrownContainer, BoxImg, Button},
+	firebase() {
+		return{
+			animalsAdoption: this.$db.ref('/animalsAdoption/').child(this.$route.params.id).get().then( (snapshot) => {
+				if (snapshot.exists()){
+					this.animalAdoption = snapshot.val()
+					if(this.animalAdoption.specie == 'cat'){
+						this.animalAdoption.specie = "Chat"
+					} else if(this.animalAdoption.specie == 'dog'){
+						this.animalAdoption.specie = "Chien"
+					}else if(this.animalAdoption.specie == 'puppy'){
+						this.animalAdoption.specie = "Chiot"
+					}else if(this.animalAdoption.specie == 'kitten'){
+						this.animalAdoption.specie = "Chaton"
+					}
+					const birthArray =this.animalAdoption.birthdate.split('-')
+					this.animalAdoption.birthdate = `${birthArray[2]}/${birthArray[1]}/${birthArray[0]}`
+				}
+			})
+		}
+	},
 	data() {
 		return {
+			animalAdoption: [],
 			animalsList: [
 				{
 					name: `Trumpy`,
@@ -132,7 +152,7 @@ export default {
 			],
 
 		}
-	}
+	},
 }
 </script>
 

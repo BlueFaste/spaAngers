@@ -1,9 +1,9 @@
 <template>
 	<form class="form form--tictac-left">
-			<textarea :placeholder="placeholder" v-if="type=='textarea'" rows="6">
+			<textarea :placeholder="placeholder" v-if="type=='textarea'" rows="6" v-model="value" @change="$emit('change',value)">
 		</textarea>
 		<input v-else :type="type" :placeholder="placeholder"
-				class="form--input form--input-email">
+				class="form--input form--input-email" v-model="value" @change="$emit('change',value)">
 
 		<input v-if="submitText" type="submit" class="form--input form--input-submit"
 				:value="submitText" @click.prevent="$emit('submit')">
@@ -19,6 +19,11 @@ export default {
 		placeholder: String,
 		submitText: String,
 		textAfter: String,
+	},
+	data(){
+		return{
+			value:'',
+		}
 	}
 }
 </script>
