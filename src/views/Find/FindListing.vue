@@ -1,12 +1,12 @@
 <template>
-	<main class="lostListing">
-		<header class="lostListing--header">
-			<h2>{{ animalsList.length }} Animaux trouvés</h2>
+	<main class="findListing">
+		<header class="findListing--header">
+			<h2>{{ animalsFind.length }} Animaux trouvés</h2>
 			<Filters :filters="filters" @filterCheck="filterCheck($event)"></Filters>
 		</header>
-		<section class="lostListing--list">
-			<box-img v-for="(actu, key) in animalDisplayList" btn-color="orange" :btn-text="actu.name" btn-tictac="left"
-					:link="`find/${key}`" :key="key" tictac="left"></box-img>
+		<section class="findListing--list">
+			<box-img v-for="(animal, key) in animalDisplayList" btn-color="orange" :btn-text="animal.name" btn-tictac="left"
+					:link="`find/${animal['.key']}`" :key="key" tictac="left"></box-img>
 			<p v-show="animalDisplayList.length == 0">Aucun animal n'a été trouvé...</p>
 
 		</section>
@@ -19,8 +19,7 @@ import Filters from "../../components/filters/filters";
 import BoxImg from "../../components/box/boxImg";
 
 export default {
-	name: "LostListing",
-	components: {BoxImg, Filters},
+	name: "findListing",
 	created() {
 		this.animalDisplayList = this.animalsList
 	},
@@ -128,8 +127,12 @@ export default {
 @import "src/styles/functions";
 @import "src/styles/mixims";
 
-.lostListing {
+.findListing {
 	margin: calc-rem($margin-top) calc-rem($margin-border) calc-rem($margin-bottom) calc-rem($margin-border);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
 
 	&--header {
 		display: flex;
@@ -145,6 +148,7 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		align-items: flex-start;
 
 		p {
 			color: $primary-orange;
