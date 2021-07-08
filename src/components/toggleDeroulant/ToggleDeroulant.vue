@@ -83,7 +83,7 @@ export default {
 		transition: opacity 200ms, height 200ms;
 
 		&--open{
-			opacity: 100%;
+			opacity: 1;
 			height: 100%;
 			transition: opacity 200ms, height 200ms;
 
