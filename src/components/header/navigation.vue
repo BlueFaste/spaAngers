@@ -4,7 +4,7 @@
 			<router-link @click.native="close()" to="/" class="nav--header-logo">
 				<img :src="require('@/assets/logo-spaa.svg')" alt="">
 			</router-link>
-			<div @click.native="close()">
+			<div @click="close()">
 				<img :src="require('@/assets/close-burger-menu.svg')" alt="">
 			</div>
 		</header>
