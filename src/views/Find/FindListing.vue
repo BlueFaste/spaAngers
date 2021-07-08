@@ -11,15 +11,20 @@
 
 		</section>
 
+		<router-link to="form/find">
+			<Button text="Voir plus" ticTac="left" color="orange"></Button>
+		</router-link>
 	</main>
 </template>
 
 <script>
 import Filters from "../../components/filters/filters";
 import BoxImg from "../../components/box/boxImg";
+import Button from "../../components/button/button";
 
 export default {
 	name: "findListing",
+	components: {Button, BoxImg, Filters},
 	created() {
 		this.animalDisplayList = this.animalsFind
 	},
@@ -139,6 +144,9 @@ export default {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
+	a{
+		align-self: center;
+	}
 
 	&--header {
 		display: flex;

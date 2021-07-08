@@ -30,7 +30,9 @@
 
 			</article>
 
-			<Button text="Voir plus" ticTac="left" color="orange"></Button>
+			<router-link to="form/adoption">
+				<Button text="Voir plus" ticTac="left" color="orange"></Button>
+			</router-link>
 		</section>
 
 	</main>
@@ -199,7 +201,7 @@ export default {
 		align-items: flex-start;
 		justify-content: space-between;
 
-		.button{
+		a{
 			align-self: center;
 		}
 
