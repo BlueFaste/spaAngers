@@ -1,6 +1,6 @@
 # spaa_angers
 
-[Spaa_Angers](bit.ly/spaa_angers) est une refonte intégrale du site de la [SPAA d'Angers](http://www.spaa-angers.com/).
+[Spaa_Angers](bit.ly/spaa-angers) est une refonte intégrale du site de la [SPAA d'Angers](http://www.spaa-angers.com/).
 
 ## Project setup
 ```
